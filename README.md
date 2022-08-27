@@ -1,4 +1,4 @@
-# IPS_Patch_Creator
+# IPS Patch Creator
 PC Homebrew for making your own switch IPS patches
 
 # Building
