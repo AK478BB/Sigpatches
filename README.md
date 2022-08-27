@@ -1,7 +1,7 @@
 # IPS_Patch_Creator
 PC Homebrew for making your own switch IPS patches
 
-#Building
+# Building
 You will need a pc with Visual Studio (I use 2022) installed and you will require the following Nuget packages.
 
 FluentFTP.39.4.0
