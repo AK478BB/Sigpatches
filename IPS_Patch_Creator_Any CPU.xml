@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<iasettings>
+  <projectproperties>
+    <manufacturer>MrDude</manufacturer>
+    <productname>IPS_Patch_Creator</productname>
+    <productversion>1.0.0.0</productversion>
+    <productcode>{82edba11-51e2-4c83-b404-726794f62da7}</productcode>
+    <upgradecode>{f9592148-9335-48d1-8880-953a01744f96}</upgradecode>
+    <language>0</language>
+    <languagename>English</languagename>
+  </projectproperties>
+  <summary>
+    <title>IPS_Patch_Creator</title>
+    <subject>IPS_Patch_Creator</subject>
+    <author>MrDude</author>
+    <summarycomments>IPS_Patch_Creator</summarycomments>
+    <revisioncode>{9070c2ac-59d5-483f-9bdc-361e220ab95c}</revisioncode>
+    <uacelevation>highestAvailable</uacelevation>
+  </summary>
+  <addremove>
+    <publishername>MrDude</publishername>
+    <contactname>MrDude</contactname>
+    <helplink>https://github.com/mrdude2478/IPS_Patch_Creator</helplink>
+    <productupdatelink>https://github.com/mrdude2478/IPS_Patch_Creator</productupdatelink>
+    <addremovecomments>All Rights Reserved</addremovecomments>
+    <iconfile />
+  </addremove>
+  <codegen>
+    <generateincludefiles>0</generateincludefiles>
+    <generatefeatures>1</generatefeatures>
+    <refreshscript>0</refreshscript>
+  </codegen>
+  <compilervariables>
+    <variables />
+  </compilervariables>
+  <build>
+    <buildtype>0</buildtype>
+    <buildasmsi>False</buildasmsi>
+    <cachesources>1</cachesources>
+  </build>
+  <targetfolders />
+  <files>
+    <filedetails filename="C:\Users\MrDude\source\repos\IPS_Patch_Creator\IPS_Patch_Creator\bin\Debug\Sigpatch-IPS-Creator.exe" targetlocation="$TARGETDIR$" type="1" generatenativeimage="0" registerassembly="0" runinstallerclass="0" createshortcut="1" runprogram="0" installfilecommand="1" />
+  </files>
+  <dependencies />
+  <registry />
+  <dialogtheme>
+    <themename>Official</themename>
+  </dialogtheme>
+  <authenticode>
+    <sign>0</sign>
+    <mode>0</mode>
+    <certificatefile />
+    <keyfile />
+    <pfxfile />
+    <productinfourl />
+    <authpassword />
+    <timestampurl />
+    <signall>0</signall>
+  </authenticode>
+  <compression>
+    <compressiontype>8</compressiontype>
+    <encrypt>0</encrypt>
+    <compressionpassword />
+  </compression>
+  <output>
+    <outputtype>0</outputtype>
+    <location />
+    <filename />
+    <calculatefilehash>0</calculatefilehash>
+    <refreshrevisioncode>1</refreshrevisioncode>
+  </output>
+</iasettings>
