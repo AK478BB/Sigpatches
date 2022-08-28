@@ -420,9 +420,9 @@ namespace IPS_Patch_Creator
                     Directory.CreateDirectory("atmosphere\\kip_patches");
                 }
 
-                if (!Directory.Exists("atmosphere\\kip_patches\\Loader_patches"))
+                if (!Directory.Exists("atmosphere\\kip_patches\\loader_patches"))
                 {
-                    Directory.CreateDirectory("atmosphere\\kip_patches\\Loader_patches");
+                    Directory.CreateDirectory("atmosphere\\kip_patches\\loader_patches");
                     richTextBox_IPS_Patch_Creator.Text += "\n" + "Patch directories created";
                 }
             }
@@ -441,7 +441,7 @@ namespace IPS_Patch_Creator
                 {
                     //create Atmosphere ips directory if it doesn't exist.
                     makedirs();
-                    using (var stream = File.Open("atmosphere\\kip_patches\\Loader_patches\\" + shaValue + ".ips", FileMode.Create))
+                    using (var stream = File.Open("atmosphere\\kip_patches\\loader_patches\\" + shaValue + ".ips", FileMode.Create))
                     {
                         using (var writer = new BinaryWriter(stream, Encoding.UTF8, false))
                         {
@@ -3010,7 +3010,7 @@ namespace IPS_Patch_Creator
 
                                     string hexstring2 = textBox_nfim_patch2.Text;
                                     uint patch2 = uint.Parse(hexstring2, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    patch = ReverseBytes(patch2);
+                                    patch2 = ReverseBytes(patch2);
                                     PatchBytes2 = BitConverter.GetBytes(patch2);
                                 }
                             }
@@ -4144,7 +4144,7 @@ namespace IPS_Patch_Creator
 
                                     string hexstring2 = textBox_fs_patch2.Text;
                                     uint patch2 = uint.Parse(hexstring2, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    patch = ReverseBytes(patch2);
+                                    patch2 = ReverseBytes(patch2);
                                     PatchBytes2 = BitConverter.GetBytes(patch2);
                                 }
                             }
@@ -4241,7 +4241,7 @@ namespace IPS_Patch_Creator
 
                                     string hexstring2 = textBox_fs_patch2.Text;
                                     uint patch2 = uint.Parse(hexstring2, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    patch = ReverseBytes(patch2);
+                                    patch2 = ReverseBytes(patch2);
                                     PatchBytes2 = BitConverter.GetBytes(patch2);
                                 }
                             }
