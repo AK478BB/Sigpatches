@@ -23,6 +23,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+//using System.Xml.Linq;
+//using System.Reflection;
+//using System.ComponentModel;
+//using System.Threading.Tasks;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+//using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
 namespace IPS_Patch_Creator
 {
@@ -614,8 +620,6 @@ namespace IPS_Patch_Creator
                         sw.WriteLine();
                         sw.Close();
                     }
-
-                    checkBox_PatchesINI.Checked = false;
                 }
             }
 
@@ -4701,8 +4705,6 @@ namespace IPS_Patch_Creator
                         sw.WriteLine();
                         sw.Close();
                     }
-
-                    checkBox_FS_PatchesINI.Checked = false;
                 }
             }
 
@@ -5243,6 +5245,8 @@ namespace IPS_Patch_Creator
             string maindec_es2 = "1";
             string FS_clean = "1";
             string nfim_cleanmain = "1";
+            string PatchesINI = "1";
+            string FS_PatchesINI = "1";
 
 
             try
@@ -5267,6 +5271,8 @@ namespace IPS_Patch_Creator
                     maindec_es2 = (sqReader.GetString(9));
                     FS_clean = (sqReader.GetString(10));
                     nfim_cleanmain = (sqReader.GetString(11));
+                    PatchesINI = (sqReader.GetString(12));
+                    FS_PatchesINI = (sqReader.GetString(13));
                 }
                 sqReader.Close();
 
@@ -5370,6 +5376,22 @@ namespace IPS_Patch_Creator
                 else
                 {
                     checkBox_nfim_cleanmain.Checked = false;
+                }
+                if (PatchesINI == "1")
+                {
+                    checkBox_PatchesINI.Checked = true;
+                }
+                else
+                {
+                    checkBox_PatchesINI.Checked = false;
+                }
+                if (FS_PatchesINI == "1")
+                {
+                    checkBox_PatchesINI.Checked = true;
+                }
+                else
+                {
+                    checkBox_FS_PatchesINI.Checked = false;
                 }
             }
 
@@ -5954,6 +5976,62 @@ namespace IPS_Patch_Creator
                 }
             }
 
+            catch (Exception error)
+            {
+                MessageBox.Show("Error is: " + error.Message);
+            }
+        }
+
+        private void checkBox_FS_PatchesINI_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //put data into the database tables....
+                using var con = new SQLiteConnection(mydatabase);
+                con.Open();
+                using var cmd = new SQLiteCommand(con);
+
+                if (checkBox_FS_PatchesINI.Checked == true)
+                {
+                    cmd.CommandText = ("UPDATE CheckboxState SET checkBox_FS_PatchesINI = 1");
+                }
+                else
+                {
+                    cmd.CommandText = ("UPDATE CheckboxState SET checkBox_FS_PatchesINI = 0");
+                }
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                con.Dispose();
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error is: " + error.Message);
+            }
+        }
+
+        private void checkBox_PatchesINI_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //put data into the database tables....
+                using var con = new SQLiteConnection(mydatabase);
+                con.Open();
+                using var cmd = new SQLiteCommand(con);
+
+                if (checkBox_PatchesINI.Checked == true)
+                {
+                    cmd.CommandText = ("UPDATE CheckboxState SET checkBox_PatchesINI = 1");
+                }
+                else
+                {
+                    cmd.CommandText = ("UPDATE CheckboxState SET checkBox_PatchesINI = 0");
+                }
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                con.Dispose();
+            }
             catch (Exception error)
             {
                 MessageBox.Show("Error is: " + error.Message);

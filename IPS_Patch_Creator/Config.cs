@@ -150,7 +150,7 @@ namespace IPS_Patch_Creator
                 cmd.ExecuteNonQuery();
                 cmd.CommandText = @"CREATE TABLE IF NOT EXISTS Theme(value TEXT)";
                 cmd.ExecuteNonQuery();
-                cmd.CommandText = @"CREATE TABLE IF NOT EXISTS CheckboxState(es_override TEXT, es_patch_override Text, fs_override Text, fs_patch_override Text, nfim_override Text, nfim_patch_override Text, checkBox_extracted Text, checkBox_decrypted Text, checkBox_maindec_es Text, checkBox_maindec_es2 Text, checkBox_FS_clean Text, checkBox_nfim_cleanmain Text)";
+                cmd.CommandText = @"CREATE TABLE IF NOT EXISTS CheckboxState(es_override TEXT, es_patch_override Text, fs_override Text, fs_patch_override Text, nfim_override Text, nfim_patch_override Text, checkBox_extracted Text, checkBox_decrypted Text, checkBox_maindec_es Text, checkBox_maindec_es2 Text, checkBox_FS_clean Text, checkBox_nfim_cleanmain Text, checkBox_PatchesINI Text, checkBox_FS_PatchesINI Text)";
                 cmd.ExecuteNonQuery();
 
                 //populate empty tables with default values
@@ -177,7 +177,7 @@ namespace IPS_Patch_Creator
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
 
-                cmd.CommandText = "INSERT INTO CheckboxState(es_override, es_patch_override, fs_override, fs_patch_override, nfim_override, nfim_patch_override, checkBox_extracted, checkBox_decrypted, checkBox_maindec_es, checkBox_maindec_es2, checkBox_FS_clean, checkBox_nfim_cleanmain) VALUES(@es_override, @es_patch_override, @fs_override, @fs_patch_override, @nfim_override, @nfim_patch_override, @checkBox_extracted, @checkBox_decrypted, @checkBox_maindec_es, @checkBox_maindec_es2, @checkBox_FS_clean, @checkBox_nfim_cleanmain)";
+                cmd.CommandText = "INSERT INTO CheckboxState(es_override, es_patch_override, fs_override, fs_patch_override, nfim_override, nfim_patch_override, checkBox_extracted, checkBox_decrypted, checkBox_maindec_es, checkBox_maindec_es2, checkBox_FS_clean, checkBox_nfim_cleanmain, checkBox_PatchesINI, checkBox_FS_PatchesINI) VALUES(@es_override, @es_patch_override, @fs_override, @fs_patch_override, @nfim_override, @nfim_patch_override, @checkBox_extracted, @checkBox_decrypted, @checkBox_maindec_es, @checkBox_maindec_es2, @checkBox_FS_clean, @checkBox_nfim_cleanmain, @checkBox_PatchesINI, @checkBox_FS_PatchesINI)";
                 cmd.Parameters.AddWithValue("@es_override", "0");
                 cmd.Parameters.AddWithValue("@es_patch_override", "0");
                 cmd.Parameters.AddWithValue("@fs_override", "0");
@@ -191,6 +191,8 @@ namespace IPS_Patch_Creator
                 cmd.Parameters.AddWithValue("@checkBox_maindec_es2", "1");
                 cmd.Parameters.AddWithValue("@checkBox_FS_clean", "1");
                 cmd.Parameters.AddWithValue("@checkBox_nfim_cleanmain", "1");
+                cmd.Parameters.AddWithValue("@checkBox_PatchesINI", "1");
+                cmd.Parameters.AddWithValue("@checkBox_FS_PatchesINI", "1");
                 cmd.Prepare();
                 cmd.ExecuteNonQuery();
 
