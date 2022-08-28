@@ -143,6 +143,9 @@ namespace IPS_Patch_Creator
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox_PatchesINI = new System.Windows.Forms.CheckBox();
+            this.checkBox_FS_PatchesINI = new System.Windows.Forms.CheckBox();
+            this.sendPatchesiniToSwitchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Loader.SuspendLayout();
@@ -233,6 +236,7 @@ namespace IPS_Patch_Creator
             // tabPage_Loader
             // 
             this.tabPage_Loader.AllowDrop = true;
+            this.tabPage_Loader.Controls.Add(this.checkBox_PatchesINI);
             this.tabPage_Loader.Controls.Add(this.checkBox_extracted);
             this.tabPage_Loader.Controls.Add(this.richTextBox_IPS_Patch_Creator);
             this.tabPage_Loader.Controls.Add(this.button1);
@@ -451,6 +455,7 @@ namespace IPS_Patch_Creator
             // 
             // tabPage_FS
             // 
+            this.tabPage_FS.Controls.Add(this.checkBox_FS_PatchesINI);
             this.tabPage_FS.Controls.Add(this.checkBox_FS_clean);
             this.tabPage_FS.Controls.Add(this.button_fs_files);
             this.tabPage_FS.Controls.Add(this.richTextBox_FS);
@@ -1260,7 +1265,8 @@ namespace IPS_Patch_Creator
             // fTPToolStripMenuItem
             // 
             this.fTPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendIPSPatchesToSwitchToolStripMenuItem});
+            this.sendIPSPatchesToSwitchToolStripMenuItem,
+            this.sendPatchesiniToSwitchToolStripMenuItem});
             this.fTPToolStripMenuItem.Name = "fTPToolStripMenuItem";
             this.fTPToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.fTPToolStripMenuItem.Text = "FTP";
@@ -1268,7 +1274,7 @@ namespace IPS_Patch_Creator
             // sendIPSPatchesToSwitchToolStripMenuItem
             // 
             this.sendIPSPatchesToSwitchToolStripMenuItem.Name = "sendIPSPatchesToSwitchToolStripMenuItem";
-            this.sendIPSPatchesToSwitchToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.sendIPSPatchesToSwitchToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.sendIPSPatchesToSwitchToolStripMenuItem.Text = "Send IPS to switch";
             this.sendIPSPatchesToSwitchToolStripMenuItem.Click += new System.EventHandler(this.sendIPSPatchesToSwitchToolStripMenuItem_Click);
             // 
@@ -1323,6 +1329,37 @@ namespace IPS_Patch_Creator
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
+            // 
+            // checkBox_PatchesINI
+            // 
+            this.checkBox_PatchesINI.AutoSize = true;
+            this.checkBox_PatchesINI.Checked = true;
+            this.checkBox_PatchesINI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_PatchesINI.Location = new System.Drawing.Point(140, 239);
+            this.checkBox_PatchesINI.Name = "checkBox_PatchesINI";
+            this.checkBox_PatchesINI.Size = new System.Drawing.Size(118, 17);
+            this.checkBox_PatchesINI.TabIndex = 17;
+            this.checkBox_PatchesINI.Text = "Append Patches.ini";
+            this.checkBox_PatchesINI.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_FS_PatchesINI
+            // 
+            this.checkBox_FS_PatchesINI.AutoSize = true;
+            this.checkBox_FS_PatchesINI.Checked = true;
+            this.checkBox_FS_PatchesINI.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_FS_PatchesINI.Location = new System.Drawing.Point(317, 239);
+            this.checkBox_FS_PatchesINI.Name = "checkBox_FS_PatchesINI";
+            this.checkBox_FS_PatchesINI.Size = new System.Drawing.Size(118, 17);
+            this.checkBox_FS_PatchesINI.TabIndex = 20;
+            this.checkBox_FS_PatchesINI.Text = "Append Patches.ini";
+            this.checkBox_FS_PatchesINI.UseVisualStyleBackColor = true;
+            // 
+            // sendPatchesiniToSwitchToolStripMenuItem
+            // 
+            this.sendPatchesiniToSwitchToolStripMenuItem.Name = "sendPatchesiniToSwitchToolStripMenuItem";
+            this.sendPatchesiniToSwitchToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.sendPatchesiniToSwitchToolStripMenuItem.Text = "Send Patches.ini to switch";
+            this.sendPatchesiniToSwitchToolStripMenuItem.Click += new System.EventHandler(this.sendPatchesiniToSwitchToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -1492,6 +1529,9 @@ namespace IPS_Patch_Creator
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.CheckBox checkBox_PatchesINI;
+        private System.Windows.Forms.CheckBox checkBox_FS_PatchesINI;
+        private System.Windows.Forms.ToolStripMenuItem sendPatchesiniToSwitchToolStripMenuItem;
     }
 }
 

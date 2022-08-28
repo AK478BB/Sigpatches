@@ -23,12 +23,6 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-//using System.Xml.Linq;
-//using System.Reflection;
-//using System.ComponentModel;
-//using System.Threading.Tasks;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-//using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
 
 namespace IPS_Patch_Creator
 {
@@ -425,6 +419,14 @@ namespace IPS_Patch_Creator
                     Directory.CreateDirectory("atmosphere\\kip_patches\\loader_patches");
                     richTextBox_IPS_Patch_Creator.Text += "\n" + "Patch directories created";
                 }
+
+                if (checkBox_PatchesINI.Checked)
+                {
+                    if (!Directory.Exists("bootloader"))
+                    {
+                        Directory.CreateDirectory("bootloader");
+                    }
+                }
             }
 
             catch (Exception error)
@@ -596,6 +598,25 @@ namespace IPS_Patch_Creator
                 richTextBox_IPS_Patch_Creator.Text += "\n" + "*************************************";
                 richTextBox_IPS_Patch_Creator.Text += "\n";
 
+                //create patches.ini
+                string inipath = "bootloader\\patches.ini";
+                if (checkBox_PatchesINI.Checked)
+                {
+                    if (!File.Exists(inipath))
+                    {
+                        var stream = File.Open("bootloader\\patches.ini", FileMode.Create);
+                        stream.Close();
+                    }
+                    using (StreamWriter sw = File.AppendText(inipath))
+                    {
+                        sw.WriteLine("[Loader:" + shaval + "]");
+                        sw.WriteLine(".nosigchk=0:0x" + hexval + ":0x1:01,00");
+                        sw.WriteLine();
+                        sw.Close();
+                    }
+
+                    checkBox_PatchesINI.Checked = false;
+                }
             }
 
             catch (Exception error)
@@ -3652,6 +3673,13 @@ namespace IPS_Patch_Creator
 
                 richTextBox_FS.Text += "\n\n" + "Temporary nca extraction directories created";
 
+                if (checkBox_FS_PatchesINI.Checked)
+                {
+                    if (!Directory.Exists("bootloader"))
+                    {
+                        Directory.CreateDirectory("bootloader");
+                    }
+                }
             }
 
             catch (Exception error)
@@ -4592,6 +4620,24 @@ namespace IPS_Patch_Creator
                 richTextBox_FS.Text += "\n" + "[FS:" + shaval + "]";
                 richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval + ":0x4:" + Fat_patches_ini1 + ",1F2003D5";
                 richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval2 + ":0x4:" + Fat_patches_ini2 + ",E0031F2A";
+
+                string inipath = "bootloader\\patches.ini";
+                if (checkBox_FS_PatchesINI.Checked)
+                {
+                    if (!File.Exists(inipath))
+                    {
+                        var stream = File.Open("bootloader\\patches.ini", FileMode.Create);
+                        stream.Close();
+                    }
+                    using (StreamWriter sw = File.AppendText(inipath))
+                    {
+                        sw.WriteLine("#FAT - " + sdk);
+                        sw.WriteLine("[FS:" + shaval + "]");
+                        sw.WriteLine(".nosigchk=0:0x" + hexval + ":0x4:" + Fat_patches_ini1 + ",1F2003D5");
+                        sw.WriteLine(".nosigchk=0:0x" + hexval2 + ":0x4:" + Fat_patches_ini2 + ",E0031F2A");
+                        sw.Close();
+                    }
+                }
             }
 
             catch (Exception error)
@@ -4637,6 +4683,27 @@ namespace IPS_Patch_Creator
                 richTextBox_FS.Text += "\n" + "[FS:" + shaval + "]";
                 richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval + ":0x4:" + ExFat_patches_ini1 + ",1F2003D5";
                 richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval2 + ":0x4:" + ExFat_patches_ini2 + ",E0031F2A";
+
+                string inipath = "bootloader\\patches.ini";
+                if (checkBox_FS_PatchesINI.Checked)
+                {
+                    if (!File.Exists(inipath))
+                    {
+                        var stream = File.Open("bootloader\\patches.ini", FileMode.Create);
+                        stream.Close();
+                    }
+                    using (StreamWriter sw = File.AppendText(inipath))
+                    {
+                        sw.WriteLine("\n" + "#ExFAT - " + sdk);
+                        sw.WriteLine("[FS:" + shaval + "]");
+                        sw.WriteLine(".nosigchk=0:0x" + hexval + ":0x4:" + ExFat_patches_ini1 + ",1F2003D5");
+                        sw.WriteLine(".nosigchk=0:0x" + hexval2 + ":0x4:" + ExFat_patches_ini2 + ",E0031F2A");
+                        sw.WriteLine();
+                        sw.Close();
+                    }
+
+                    checkBox_FS_PatchesINI.Checked = false;
+                }
             }
 
             catch (Exception error)
@@ -5792,6 +5859,104 @@ namespace IPS_Patch_Creator
             catch (Exception error)
             {
                 MessageBox.Show("The error is: " + error.Message, "Eeeeek!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void sendPatchesiniToSwitchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+
+            try
+            {
+                //make sure the ftp database exists!
+                if (!File.Exists(ftpdb))
+                {
+                    Form FTP = new FTP();
+                    this.Hide();
+                    FTP.ShowDialog();
+                    this.Show();
+                }
+
+                else
+                {
+                    //read the database for ip,port,username and password.
+                    using var con = new SQLiteConnection(ftpdatabase);
+                    con.Open();
+                    using var cmd = new SQLiteCommand(con);
+                    cmd.CommandText = "SELECT * from ftp";
+
+                    SQLiteDataReader sqReader = cmd.ExecuteReader();
+                    while (sqReader.Read())
+                    {
+                        ip = (sqReader.GetString(0));
+                        port = (sqReader.GetString(1));
+                        user = (sqReader.GetString(2));
+                        pass = (sqReader.GetString(3));
+                    }
+                    sqReader.Close();
+
+                    //make sure the Atmosphere folder exists now.
+                    if (Directory.Exists("bootloader"))
+                    {
+
+                        var client = new FtpClient
+                        {
+                            Host = ip,
+                            Port = Int16.Parse(port),
+                            Credentials = new NetworkCredential(user, pass),
+                        };
+
+                        client.ConnectTimeout = 1000; //wait 1 second
+
+                        try
+                        {
+                            client.Connect();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Can't connect to the ftp, check your ftp settings", "FTP Connection Error!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        }
+
+                        if (client.IsConnected)
+                        {
+                            //set graphic so we know we are connected.
+                            pictureBox1.Visible = true;
+
+                            //send the ips files and folders, only send ips files less than 100 bytes
+                            var rules = new List<FtpRule>{
+                                new FtpFileExtensionRule(true, new List<string>{ "ini" }),
+                                new FtpSizeRule(FtpOperator.LessThan, 500000)
+                            };
+                            client.UploadDirectory("bootloader", "bootloader", FtpFolderSyncMode.Update, FtpRemoteExists.AddToEnd, FtpVerify.OnlyChecksum, rules);
+
+                            //once folders are sent - disconnect.
+                            client.Disconnect();
+
+                            //once disconnected - reset graphic.
+                            pictureBox1.Visible = false;
+
+                            //tell user the patches have been sent.
+                            MessageBox.Show("Bootloader folder patches.ini sent", "Done!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                        }
+
+                        else
+                        {
+                            pictureBox1.Visible = false;
+                        }
+                    }
+
+                    else
+                    {
+                        //IPS patches have probably not been generated yet - show a message to tell the user.
+                        MessageBox.Show("No bootloader folder was found, have you created the patches.ini file yet?", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+                    }
+
+                }
+            }
+
+            catch (Exception error)
+            {
+                MessageBox.Show("Error is: " + error.Message);
             }
         }
     }
