@@ -159,7 +159,7 @@ namespace IPS_Patch_Creator
             richTextBox_FS.Text += "\n\n" + "FS sigcheck patches are required to install and run NSP's.";
 
             richTextBox_NFIM.Text = "NFIM IPS patch information.";
-            richTextBox_NFIM.Text += "\n\n" + "NFIM patches should allow you to play LAN games without an active internet connection.";
+            richTextBox_NFIM.Text += "\n\n" + "NFIM patches skip the connection test to allow connections to networks without internet access or dns wildcard blocks (e.g. *nintendo*).";
 
             console_box.Text = "This page is for testing new routines.";
 
@@ -1311,17 +1311,13 @@ namespace IPS_Patch_Creator
                 //Remove the text and periods from the sdk variable
                 string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                 int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
-
-                if (SDKVersion >= 7300 & SDKVersion < 9300 || SDKVersion == 82990)
+                
+                if (SDKVersion > 0 & SDKVersion < 9300 || SDKVersion == 011290 || SDKVersion == 82990) //#fix out of bounds error
                 {
-                    pattern = new byte[] { 0x00, 0x94, 0x60, 0x7E, 0x40, 0x92, 0xFD, 0x7B,
-                                           0x46, 0xA9, 0xF4, 0x4F, 0x45, 0xA9, 0xFF, 0xC3,
-                                           0x01, 0x91, 0xC0, 0x03, 0x5F, 0xD6, 0x00, 0x00,
-                                           0x00, 0x00 };
-                    toggle = 0;
+                    toggle = 2;
                 }
 
-                else if (SDKVersion > 9300 & SDKVersion < 10400)
+                else if (SDKVersion >= 9300 & SDKVersion < 10400)
                 {
                     pattern = new byte[] { 0xFF, 0x97, 0xE0, 0x03, 0x13, 0xAA, 0xFD, 0x7B,
                                            0x48, 0xA9, 0xF4, 0x4F, 0x47, 0xA9, 0xFF, 0x43,
@@ -1417,6 +1413,11 @@ namespace IPS_Patch_Creator
                         richTextBox_ES.ForeColor = Color.Red;
                         richTextBox_ES.Text += "\n" + "Hex search pattern was not found :-(";
                     }
+                }
+
+                if (toggle == 2)
+                {
+                    MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
