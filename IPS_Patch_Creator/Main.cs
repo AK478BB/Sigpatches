@@ -1387,7 +1387,7 @@ namespace IPS_Patch_Creator
                     richTextBox_ES.Text += "\n" + "Patch offset location: 0x" + hex;
                 }
 
-                if (toggle == 1)
+                else if (toggle == 1)
                 {
                     //convert byte array Bytebuffer into a long hex string
                     StringBuilder hex = new StringBuilder(ByteBuffer.Length * 2);
@@ -1415,7 +1415,7 @@ namespace IPS_Patch_Creator
                     }
                 }
 
-                if (toggle == 2)
+                else if (toggle == 2)
                 {
                     MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -1982,7 +1982,7 @@ namespace IPS_Patch_Creator
                             int sdk_ver = Int32.Parse(sdk);
 
                             //We should probably put a check here so this code doesn't run if we didn't find the sdk version
-                            if (sdk_ver >= 9300 & sdk_ver != 82990)
+                            if (sdk_ver >= 9300 & sdk_ver != 82990 & sdk_ver != 011290)
                             {
                                 //extract nca main file
                                 Extract_nca();
@@ -2017,7 +2017,7 @@ namespace IPS_Patch_Creator
 
                             else
                             {
-                                if (sdk_ver < 9300 || sdk_ver == 82990)
+                                if (sdk_ver < 9300 || sdk_ver == 82990 || sdk_ver == 011290)
                                 {
                                     richTextBox_ES2.ForeColor = Color.Red;
                                     richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead";
@@ -2073,9 +2073,9 @@ namespace IPS_Patch_Creator
                     string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                     int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
 
-                    if (SDKVersion < 14300 || SDKVersion == 82990)
+                    if (SDKVersion >= 9300 & SDKVersion < 14300)
                     {
-                        if (SDKVersion >= 9300 & SDKVersion < 10400 || SDKVersion == 82990)
+                        if (SDKVersion >= 9300 & SDKVersion < 10400)
                         {
                             find = ("f3031faa02000014").ToLower();
                             find2 = ("c07240f9e1930091").ToLower();
@@ -2465,7 +2465,7 @@ namespace IPS_Patch_Creator
                         int sdk_ver = Int32.Parse(sdk);
 
                         //We should probably put a check here so this code doesn't run if we didn't find the sdk version
-                        if (sdk_ver >= 9300 & sdk_ver != 82990)
+                        if (sdk_ver >= 9300 & sdk_ver != 82990 & sdk_ver != 011290)
                         {
                             //extract nca main file
                             Extract_nca();
@@ -2500,7 +2500,7 @@ namespace IPS_Patch_Creator
 
                         else
                         {
-                            if (sdk_ver < 9300 || sdk_ver == 82990)
+                            if (sdk_ver < 9300 || sdk_ver == 82990 || sdk_ver == 011290)
                             {
                                 richTextBox_ES2.ForeColor = Color.Red;
                                 richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead";
