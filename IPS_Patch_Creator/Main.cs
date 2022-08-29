@@ -2915,9 +2915,21 @@ namespace IPS_Patch_Creator
                 string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                 int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
 
-                if (SDKVersion < 12300 || SDKVersion == 82990) // fw < 10.0.4
+                if (SDKVersion < 1300 || SDKVersion == 011290)
                 {
-                    find = ("F50F1DF8F44F01A9FD7B02A9FD830091F50301AAF40300AA..FF97F30314AAE00314AA9F").ToLower();
+                    find = ("........FD....................0313AAE003.AA").ToLower();
+                    toggle = 1;
+                }
+                
+                else if (SDKVersion >= 1300 & SDKVersion < 7300)
+                {
+                    find = ("........FD...................F30314AAE00314AA9F").ToLower();
+                    toggle = 1;
+                }
+
+                else if (SDKVersion >= 7300 & SDKVersion < 12300 || SDKVersion == 82990)
+                {
+                    find = ("........FD.................FF97F30314AAE00314AA9F").ToLower();
                     toggle = 1;
                 }
 
@@ -2936,7 +2948,7 @@ namespace IPS_Patch_Creator
                     }
                     else
                     {
-                        find = ("FD7BBDA9F50B00F9FD030091F44F02A9F50301AAF40300AA.FBFF97F30314AAE00314AA9F").ToLower();
+                        find = ("........FD.................FF97F30314AAE00314AA9F").ToLower();
                     }
                     toggle = 1;
                 }
