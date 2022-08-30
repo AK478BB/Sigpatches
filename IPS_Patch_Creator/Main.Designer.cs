@@ -69,26 +69,6 @@ namespace IPS_Patch_Creator
             this.richTextBox_NFIM = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip_nfim = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage_test = new System.Windows.Forms.TabPage();
-            this.console_box = new System.Windows.Forms.RichTextBox();
-            this.tabPage_keys = new System.Windows.Forms.TabPage();
-            this.button_write_keys = new System.Windows.Forms.Button();
-            this.button_sort_keys = new System.Windows.Forms.Button();
-            this.button_reload_keys = new System.Windows.Forms.Button();
-            this.richTextBox_keys = new System.Windows.Forms.RichTextBox();
-            this.contextMenuStrip_keys = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage_Base64 = new System.Windows.Forms.TabPage();
-            this.button_clear = new System.Windows.Forms.Button();
-            this.button_encode = new System.Windows.Forms.Button();
-            this.button_decode = new System.Windows.Forms.Button();
-            this.richTextBox_Base64 = new System.Windows.Forms.RichTextBox();
-            this.contextMenuStrip_base64 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabPage_info = new System.Windows.Forms.TabPage();
-            this.richTextBox_info = new System.Windows.Forms.RichTextBox();
             this.tabPage_WCO = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -119,8 +99,31 @@ namespace IPS_Patch_Creator
             this.textBox_nfim_override = new System.Windows.Forms.TextBox();
             this.textBox_es_override = new System.Windows.Forms.TextBox();
             this.label_ES_Wildcard = new System.Windows.Forms.Label();
+            this.tabPage_test = new System.Windows.Forms.TabPage();
+            this.console_box = new System.Windows.Forms.RichTextBox();
+            this.tabPage_keys = new System.Windows.Forms.TabPage();
+            this.button_write_keys = new System.Windows.Forms.Button();
+            this.button_sort_keys = new System.Windows.Forms.Button();
+            this.button_reload_keys = new System.Windows.Forms.Button();
+            this.richTextBox_keys = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip_keys = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage_Base64 = new System.Windows.Forms.TabPage();
+            this.button_clear = new System.Windows.Forms.Button();
+            this.button_encode = new System.Windows.Forms.Button();
+            this.button_decode = new System.Windows.Forms.Button();
+            this.richTextBox_Base64 = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip_base64 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage_info = new System.Windows.Forms.TabPage();
+            this.richTextBox_info = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exploreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exploreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeAtmosphereFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removePatchesiniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nCASizesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fTPSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,6 +149,7 @@ namespace IPS_Patch_Creator
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cleanOldFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Loader.SuspendLayout();
@@ -158,16 +162,16 @@ namespace IPS_Patch_Creator
             this.contextMenuStrip_fs.SuspendLayout();
             this.tabPage_NFIM.SuspendLayout();
             this.contextMenuStrip_nfim.SuspendLayout();
+            this.tabPage_WCO.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabPage_test.SuspendLayout();
             this.tabPage_keys.SuspendLayout();
             this.contextMenuStrip_keys.SuspendLayout();
             this.tabPage_Base64.SuspendLayout();
             this.contextMenuStrip_base64.SuspendLayout();
             this.tabPage_info.SuspendLayout();
-            this.tabPage_WCO.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -614,207 +618,6 @@ namespace IPS_Patch_Creator
             this.copyToolStripMenuItem5.Text = "Copy";
             this.copyToolStripMenuItem5.Click += new System.EventHandler(this.copyToolStripMenuItem5_Click);
             // 
-            // tabPage_test
-            // 
-            this.tabPage_test.Controls.Add(this.button_CBZ);
-            this.tabPage_test.Controls.Add(this.console_box);
-            this.tabPage_test.Controls.Add(this.button_wildcard);
-            this.tabPage_test.Controls.Add(this.button_mov);
-            this.tabPage_test.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_test.Name = "tabPage_test";
-            this.tabPage_test.Size = new System.Drawing.Size(598, 262);
-            this.tabPage_test.TabIndex = 5;
-            this.tabPage_test.Text = "Test";
-            this.tabPage_test.UseVisualStyleBackColor = true;
-            // 
-            // console_box
-            // 
-            this.console_box.BackColor = System.Drawing.Color.Black;
-            this.console_box.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.console_box.ForeColor = System.Drawing.Color.Lime;
-            this.console_box.Location = new System.Drawing.Point(5, 6);
-            this.console_box.Name = "console_box";
-            this.console_box.Size = new System.Drawing.Size(586, 225);
-            this.console_box.TabIndex = 18;
-            this.console_box.Text = "";
-            // 
-            // tabPage_keys
-            // 
-            this.tabPage_keys.Controls.Add(this.button_write_keys);
-            this.tabPage_keys.Controls.Add(this.button_sort_keys);
-            this.tabPage_keys.Controls.Add(this.button_reload_keys);
-            this.tabPage_keys.Controls.Add(this.richTextBox_keys);
-            this.tabPage_keys.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_keys.Name = "tabPage_keys";
-            this.tabPage_keys.Size = new System.Drawing.Size(598, 262);
-            this.tabPage_keys.TabIndex = 7;
-            this.tabPage_keys.Text = "KeyData";
-            // 
-            // button_write_keys
-            // 
-            this.button_write_keys.Location = new System.Drawing.Point(516, 235);
-            this.button_write_keys.Name = "button_write_keys";
-            this.button_write_keys.Size = new System.Drawing.Size(75, 23);
-            this.button_write_keys.TabIndex = 22;
-            this.button_write_keys.Text = "Write Keys";
-            this.button_write_keys.UseVisualStyleBackColor = true;
-            this.button_write_keys.Click += new System.EventHandler(this.button_write_keys_Click);
-            // 
-            // button_sort_keys
-            // 
-            this.button_sort_keys.Location = new System.Drawing.Point(85, 235);
-            this.button_sort_keys.Name = "button_sort_keys";
-            this.button_sort_keys.Size = new System.Drawing.Size(75, 23);
-            this.button_sort_keys.TabIndex = 21;
-            this.button_sort_keys.Text = "Sort Keys";
-            this.button_sort_keys.UseVisualStyleBackColor = true;
-            this.button_sort_keys.Click += new System.EventHandler(this.button_sort_keys_Click);
-            // 
-            // button_reload_keys
-            // 
-            this.button_reload_keys.Location = new System.Drawing.Point(5, 235);
-            this.button_reload_keys.Name = "button_reload_keys";
-            this.button_reload_keys.Size = new System.Drawing.Size(75, 23);
-            this.button_reload_keys.TabIndex = 20;
-            this.button_reload_keys.Text = "Reload Keys";
-            this.button_reload_keys.UseVisualStyleBackColor = true;
-            this.button_reload_keys.Click += new System.EventHandler(this.button_reload_keys_Click);
-            // 
-            // richTextBox_keys
-            // 
-            this.richTextBox_keys.BackColor = System.Drawing.Color.Black;
-            this.richTextBox_keys.ContextMenuStrip = this.contextMenuStrip_keys;
-            this.richTextBox_keys.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_keys.ForeColor = System.Drawing.Color.Lime;
-            this.richTextBox_keys.Location = new System.Drawing.Point(5, 6);
-            this.richTextBox_keys.Name = "richTextBox_keys";
-            this.richTextBox_keys.Size = new System.Drawing.Size(586, 225);
-            this.richTextBox_keys.TabIndex = 19;
-            this.richTextBox_keys.Text = "";
-            // 
-            // contextMenuStrip_keys
-            // 
-            this.contextMenuStrip_keys.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem,
-            this.pasteToolStripMenuItem});
-            this.contextMenuStrip_keys.Name = "contextMenuStrip_keys";
-            this.contextMenuStrip_keys.Size = new System.Drawing.Size(103, 48);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            this.copyToolStripMenuItem.Text = "Copy";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // pasteToolStripMenuItem
-            // 
-            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
-            this.pasteToolStripMenuItem.Text = "Paste";
-            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
-            // 
-            // tabPage_Base64
-            // 
-            this.tabPage_Base64.Controls.Add(this.button_clear);
-            this.tabPage_Base64.Controls.Add(this.button_encode);
-            this.tabPage_Base64.Controls.Add(this.button_decode);
-            this.tabPage_Base64.Controls.Add(this.richTextBox_Base64);
-            this.tabPage_Base64.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_Base64.Name = "tabPage_Base64";
-            this.tabPage_Base64.Size = new System.Drawing.Size(598, 262);
-            this.tabPage_Base64.TabIndex = 8;
-            this.tabPage_Base64.Text = "Base64";
-            this.tabPage_Base64.UseVisualStyleBackColor = true;
-            // 
-            // button_clear
-            // 
-            this.button_clear.Location = new System.Drawing.Point(516, 235);
-            this.button_clear.Name = "button_clear";
-            this.button_clear.Size = new System.Drawing.Size(75, 23);
-            this.button_clear.TabIndex = 19;
-            this.button_clear.Text = "Clear";
-            this.button_clear.UseVisualStyleBackColor = true;
-            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
-            // 
-            // button_encode
-            // 
-            this.button_encode.Location = new System.Drawing.Point(86, 235);
-            this.button_encode.Name = "button_encode";
-            this.button_encode.Size = new System.Drawing.Size(75, 23);
-            this.button_encode.TabIndex = 18;
-            this.button_encode.Text = "Encode";
-            this.button_encode.UseVisualStyleBackColor = true;
-            this.button_encode.Click += new System.EventHandler(this.button_encode_Click);
-            // 
-            // button_decode
-            // 
-            this.button_decode.Location = new System.Drawing.Point(5, 235);
-            this.button_decode.Name = "button_decode";
-            this.button_decode.Size = new System.Drawing.Size(75, 23);
-            this.button_decode.TabIndex = 17;
-            this.button_decode.Text = "Decode";
-            this.button_decode.UseVisualStyleBackColor = true;
-            this.button_decode.Click += new System.EventHandler(this.button_decode_Click);
-            // 
-            // richTextBox_Base64
-            // 
-            this.richTextBox_Base64.BackColor = System.Drawing.Color.Black;
-            this.richTextBox_Base64.ContextMenuStrip = this.contextMenuStrip_base64;
-            this.richTextBox_Base64.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_Base64.ForeColor = System.Drawing.Color.Lime;
-            this.richTextBox_Base64.Location = new System.Drawing.Point(5, 6);
-            this.richTextBox_Base64.Name = "richTextBox_Base64";
-            this.richTextBox_Base64.Size = new System.Drawing.Size(586, 225);
-            this.richTextBox_Base64.TabIndex = 16;
-            this.richTextBox_Base64.Text = "";
-            this.richTextBox_Base64.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox_Base64_LinkClicked);
-            // 
-            // contextMenuStrip_base64
-            // 
-            this.contextMenuStrip_base64.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyToolStripMenuItem6,
-            this.pasteToolStripMenuItem1});
-            this.contextMenuStrip_base64.Name = "contextMenuStrip_base64";
-            this.contextMenuStrip_base64.Size = new System.Drawing.Size(103, 48);
-            // 
-            // copyToolStripMenuItem6
-            // 
-            this.copyToolStripMenuItem6.Name = "copyToolStripMenuItem6";
-            this.copyToolStripMenuItem6.Size = new System.Drawing.Size(102, 22);
-            this.copyToolStripMenuItem6.Text = "Copy";
-            this.copyToolStripMenuItem6.Click += new System.EventHandler(this.copyToolStripMenuItem6_Click);
-            // 
-            // pasteToolStripMenuItem1
-            // 
-            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
-            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
-            this.pasteToolStripMenuItem1.Text = "Paste";
-            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
-            // 
-            // tabPage_info
-            // 
-            this.tabPage_info.Controls.Add(this.richTextBox_info);
-            this.tabPage_info.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_info.Name = "tabPage_info";
-            this.tabPage_info.Size = new System.Drawing.Size(598, 262);
-            this.tabPage_info.TabIndex = 9;
-            this.tabPage_info.Text = "Info";
-            this.tabPage_info.UseVisualStyleBackColor = true;
-            // 
-            // richTextBox_info
-            // 
-            this.richTextBox_info.BackColor = System.Drawing.Color.Black;
-            this.richTextBox_info.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox_info.ForeColor = System.Drawing.Color.Lime;
-            this.richTextBox_info.Location = new System.Drawing.Point(6, 6);
-            this.richTextBox_info.Name = "richTextBox_info";
-            this.richTextBox_info.ReadOnly = true;
-            this.richTextBox_info.Size = new System.Drawing.Size(586, 250);
-            this.richTextBox_info.TabIndex = 17;
-            this.richTextBox_info.Text = "";
-            this.richTextBox_info.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox_info_LinkClicked);
-            // 
             // tabPage_WCO
             // 
             this.tabPage_WCO.Controls.Add(this.panel3);
@@ -1146,6 +949,207 @@ namespace IPS_Patch_Creator
             this.label_ES_Wildcard.TabIndex = 9;
             this.label_ES_Wildcard.Text = "ES Wildcard";
             // 
+            // tabPage_test
+            // 
+            this.tabPage_test.Controls.Add(this.button_CBZ);
+            this.tabPage_test.Controls.Add(this.console_box);
+            this.tabPage_test.Controls.Add(this.button_wildcard);
+            this.tabPage_test.Controls.Add(this.button_mov);
+            this.tabPage_test.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_test.Name = "tabPage_test";
+            this.tabPage_test.Size = new System.Drawing.Size(598, 262);
+            this.tabPage_test.TabIndex = 5;
+            this.tabPage_test.Text = "Test";
+            this.tabPage_test.UseVisualStyleBackColor = true;
+            // 
+            // console_box
+            // 
+            this.console_box.BackColor = System.Drawing.Color.Black;
+            this.console_box.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.console_box.ForeColor = System.Drawing.Color.Lime;
+            this.console_box.Location = new System.Drawing.Point(5, 6);
+            this.console_box.Name = "console_box";
+            this.console_box.Size = new System.Drawing.Size(586, 225);
+            this.console_box.TabIndex = 18;
+            this.console_box.Text = "";
+            // 
+            // tabPage_keys
+            // 
+            this.tabPage_keys.Controls.Add(this.button_write_keys);
+            this.tabPage_keys.Controls.Add(this.button_sort_keys);
+            this.tabPage_keys.Controls.Add(this.button_reload_keys);
+            this.tabPage_keys.Controls.Add(this.richTextBox_keys);
+            this.tabPage_keys.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_keys.Name = "tabPage_keys";
+            this.tabPage_keys.Size = new System.Drawing.Size(598, 262);
+            this.tabPage_keys.TabIndex = 7;
+            this.tabPage_keys.Text = "KeyData";
+            // 
+            // button_write_keys
+            // 
+            this.button_write_keys.Location = new System.Drawing.Point(516, 235);
+            this.button_write_keys.Name = "button_write_keys";
+            this.button_write_keys.Size = new System.Drawing.Size(75, 23);
+            this.button_write_keys.TabIndex = 22;
+            this.button_write_keys.Text = "Write Keys";
+            this.button_write_keys.UseVisualStyleBackColor = true;
+            this.button_write_keys.Click += new System.EventHandler(this.button_write_keys_Click);
+            // 
+            // button_sort_keys
+            // 
+            this.button_sort_keys.Location = new System.Drawing.Point(85, 235);
+            this.button_sort_keys.Name = "button_sort_keys";
+            this.button_sort_keys.Size = new System.Drawing.Size(75, 23);
+            this.button_sort_keys.TabIndex = 21;
+            this.button_sort_keys.Text = "Sort Keys";
+            this.button_sort_keys.UseVisualStyleBackColor = true;
+            this.button_sort_keys.Click += new System.EventHandler(this.button_sort_keys_Click);
+            // 
+            // button_reload_keys
+            // 
+            this.button_reload_keys.Location = new System.Drawing.Point(5, 235);
+            this.button_reload_keys.Name = "button_reload_keys";
+            this.button_reload_keys.Size = new System.Drawing.Size(75, 23);
+            this.button_reload_keys.TabIndex = 20;
+            this.button_reload_keys.Text = "Reload Keys";
+            this.button_reload_keys.UseVisualStyleBackColor = true;
+            this.button_reload_keys.Click += new System.EventHandler(this.button_reload_keys_Click);
+            // 
+            // richTextBox_keys
+            // 
+            this.richTextBox_keys.BackColor = System.Drawing.Color.Black;
+            this.richTextBox_keys.ContextMenuStrip = this.contextMenuStrip_keys;
+            this.richTextBox_keys.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_keys.ForeColor = System.Drawing.Color.Lime;
+            this.richTextBox_keys.Location = new System.Drawing.Point(5, 6);
+            this.richTextBox_keys.Name = "richTextBox_keys";
+            this.richTextBox_keys.Size = new System.Drawing.Size(586, 225);
+            this.richTextBox_keys.TabIndex = 19;
+            this.richTextBox_keys.Text = "";
+            // 
+            // contextMenuStrip_keys
+            // 
+            this.contextMenuStrip_keys.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem});
+            this.contextMenuStrip_keys.Name = "contextMenuStrip_keys";
+            this.contextMenuStrip_keys.Size = new System.Drawing.Size(103, 48);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // tabPage_Base64
+            // 
+            this.tabPage_Base64.Controls.Add(this.button_clear);
+            this.tabPage_Base64.Controls.Add(this.button_encode);
+            this.tabPage_Base64.Controls.Add(this.button_decode);
+            this.tabPage_Base64.Controls.Add(this.richTextBox_Base64);
+            this.tabPage_Base64.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_Base64.Name = "tabPage_Base64";
+            this.tabPage_Base64.Size = new System.Drawing.Size(598, 262);
+            this.tabPage_Base64.TabIndex = 8;
+            this.tabPage_Base64.Text = "Base64";
+            this.tabPage_Base64.UseVisualStyleBackColor = true;
+            // 
+            // button_clear
+            // 
+            this.button_clear.Location = new System.Drawing.Point(516, 235);
+            this.button_clear.Name = "button_clear";
+            this.button_clear.Size = new System.Drawing.Size(75, 23);
+            this.button_clear.TabIndex = 19;
+            this.button_clear.Text = "Clear";
+            this.button_clear.UseVisualStyleBackColor = true;
+            this.button_clear.Click += new System.EventHandler(this.button_clear_Click);
+            // 
+            // button_encode
+            // 
+            this.button_encode.Location = new System.Drawing.Point(86, 235);
+            this.button_encode.Name = "button_encode";
+            this.button_encode.Size = new System.Drawing.Size(75, 23);
+            this.button_encode.TabIndex = 18;
+            this.button_encode.Text = "Encode";
+            this.button_encode.UseVisualStyleBackColor = true;
+            this.button_encode.Click += new System.EventHandler(this.button_encode_Click);
+            // 
+            // button_decode
+            // 
+            this.button_decode.Location = new System.Drawing.Point(5, 235);
+            this.button_decode.Name = "button_decode";
+            this.button_decode.Size = new System.Drawing.Size(75, 23);
+            this.button_decode.TabIndex = 17;
+            this.button_decode.Text = "Decode";
+            this.button_decode.UseVisualStyleBackColor = true;
+            this.button_decode.Click += new System.EventHandler(this.button_decode_Click);
+            // 
+            // richTextBox_Base64
+            // 
+            this.richTextBox_Base64.BackColor = System.Drawing.Color.Black;
+            this.richTextBox_Base64.ContextMenuStrip = this.contextMenuStrip_base64;
+            this.richTextBox_Base64.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_Base64.ForeColor = System.Drawing.Color.Lime;
+            this.richTextBox_Base64.Location = new System.Drawing.Point(5, 6);
+            this.richTextBox_Base64.Name = "richTextBox_Base64";
+            this.richTextBox_Base64.Size = new System.Drawing.Size(586, 225);
+            this.richTextBox_Base64.TabIndex = 16;
+            this.richTextBox_Base64.Text = "";
+            this.richTextBox_Base64.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox_Base64_LinkClicked);
+            // 
+            // contextMenuStrip_base64
+            // 
+            this.contextMenuStrip_base64.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem6,
+            this.pasteToolStripMenuItem1});
+            this.contextMenuStrip_base64.Name = "contextMenuStrip_base64";
+            this.contextMenuStrip_base64.Size = new System.Drawing.Size(103, 48);
+            // 
+            // copyToolStripMenuItem6
+            // 
+            this.copyToolStripMenuItem6.Name = "copyToolStripMenuItem6";
+            this.copyToolStripMenuItem6.Size = new System.Drawing.Size(102, 22);
+            this.copyToolStripMenuItem6.Text = "Copy";
+            this.copyToolStripMenuItem6.Click += new System.EventHandler(this.copyToolStripMenuItem6_Click);
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
+            // 
+            // tabPage_info
+            // 
+            this.tabPage_info.Controls.Add(this.richTextBox_info);
+            this.tabPage_info.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_info.Name = "tabPage_info";
+            this.tabPage_info.Size = new System.Drawing.Size(598, 262);
+            this.tabPage_info.TabIndex = 9;
+            this.tabPage_info.Text = "Info";
+            this.tabPage_info.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox_info
+            // 
+            this.richTextBox_info.BackColor = System.Drawing.Color.Black;
+            this.richTextBox_info.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox_info.ForeColor = System.Drawing.Color.Lime;
+            this.richTextBox_info.Location = new System.Drawing.Point(6, 6);
+            this.richTextBox_info.Name = "richTextBox_info";
+            this.richTextBox_info.ReadOnly = true;
+            this.richTextBox_info.Size = new System.Drawing.Size(586, 250);
+            this.richTextBox_info.TabIndex = 17;
+            this.richTextBox_info.Text = "";
+            this.richTextBox_info.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox_info_LinkClicked);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1165,10 +1169,35 @@ namespace IPS_Patch_Creator
             // 
             // exploreToolStripMenuItem
             // 
+            this.exploreToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exploreToolStripMenuItem1,
+            this.removeAtmosphereFolderToolStripMenuItem,
+            this.removePatchesiniToolStripMenuItem,
+            this.cleanOldFilesToolStripMenuItem});
             this.exploreToolStripMenuItem.Name = "exploreToolStripMenuItem";
-            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.exploreToolStripMenuItem.Text = "Explore";
-            this.exploreToolStripMenuItem.Click += new System.EventHandler(this.exploreToolStripMenuItem_Click);
+            this.exploreToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.exploreToolStripMenuItem.Text = "File Utils";
+            // 
+            // exploreToolStripMenuItem1
+            // 
+            this.exploreToolStripMenuItem1.Name = "exploreToolStripMenuItem1";
+            this.exploreToolStripMenuItem1.Size = new System.Drawing.Size(188, 22);
+            this.exploreToolStripMenuItem1.Text = "Explore Program Files";
+            this.exploreToolStripMenuItem1.Click += new System.EventHandler(this.exploreToolStripMenuItem_Click);
+            // 
+            // removeAtmosphereFolderToolStripMenuItem
+            // 
+            this.removeAtmosphereFolderToolStripMenuItem.Name = "removeAtmosphereFolderToolStripMenuItem";
+            this.removeAtmosphereFolderToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.removeAtmosphereFolderToolStripMenuItem.Text = "Remove IPS Patches";
+            this.removeAtmosphereFolderToolStripMenuItem.Click += new System.EventHandler(this.removeAtmosphereFolderToolStripMenuItem_Click);
+            // 
+            // removePatchesiniToolStripMenuItem
+            // 
+            this.removePatchesiniToolStripMenuItem.Name = "removePatchesiniToolStripMenuItem";
+            this.removePatchesiniToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.removePatchesiniToolStripMenuItem.Text = "Remove Patches.ini";
+            this.removePatchesiniToolStripMenuItem.Click += new System.EventHandler(this.removePatchesiniToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
@@ -1363,6 +1392,13 @@ namespace IPS_Patch_Creator
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // cleanOldFilesToolStripMenuItem
+            // 
+            this.cleanOldFilesToolStripMenuItem.Name = "cleanOldFilesToolStripMenuItem";
+            this.cleanOldFilesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cleanOldFilesToolStripMenuItem.Text = "Remove Old Files";
+            this.cleanOldFilesToolStripMenuItem.Click += new System.EventHandler(this.cleanOldFilesToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AllowDrop = true;
@@ -1398,18 +1434,18 @@ namespace IPS_Patch_Creator
             this.tabPage_NFIM.ResumeLayout(false);
             this.tabPage_NFIM.PerformLayout();
             this.contextMenuStrip_nfim.ResumeLayout(false);
-            this.tabPage_test.ResumeLayout(false);
-            this.tabPage_keys.ResumeLayout(false);
-            this.contextMenuStrip_keys.ResumeLayout(false);
-            this.tabPage_Base64.ResumeLayout(false);
-            this.contextMenuStrip_base64.ResumeLayout(false);
-            this.tabPage_info.ResumeLayout(false);
             this.tabPage_WCO.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage_test.ResumeLayout(false);
+            this.tabPage_keys.ResumeLayout(false);
+            this.contextMenuStrip_keys.ResumeLayout(false);
+            this.tabPage_Base64.ResumeLayout(false);
+            this.contextMenuStrip_base64.ResumeLayout(false);
+            this.tabPage_info.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1534,6 +1570,10 @@ namespace IPS_Patch_Creator
         private System.Windows.Forms.CheckBox checkBox_PatchesINI;
         private System.Windows.Forms.CheckBox checkBox_FS_PatchesINI;
         private System.Windows.Forms.ToolStripMenuItem sendPatchesiniToSwitchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exploreToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem removeAtmosphereFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removePatchesiniToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cleanOldFilesToolStripMenuItem;
     }
 }
 

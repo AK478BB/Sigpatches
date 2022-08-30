@@ -6155,6 +6155,128 @@ namespace IPS_Patch_Creator
                 MessageBox.Show("Error is: " + error.Message);
             }
         }
+
+        private void removeAtmosphereFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var question = MessageBox.Show("Do you really want to remove the Atmosphere folder and contents?", "Clean IPS Patches", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (question == DialogResult.Yes)
+            {
+                try
+                {
+                    string folderPath = "atmosphere";
+                    //Safety check for directory existence.
+                    if (!Directory.Exists(folderPath))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        DirectoryInfo directory = new DirectoryInfo(folderPath);
+                        directory.Delete(true);
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
+            }
+        }
+
+        private void removePatchesiniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var question = MessageBox.Show("Do you really want to remove the bootloader folder and contents?", "Clean IPS Patches", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (question == DialogResult.Yes)
+            {
+                try
+                {
+                    string folderPath = "bootloader";
+                    //Safety check for directory existence.
+                    if (!Directory.Exists(folderPath))
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        DirectoryInfo directory = new DirectoryInfo(folderPath);
+                        directory.Delete(true);
+                    }
+                }
+                catch (Exception error)
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
+            }
+        }
+
+        private void cleanOldFilesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string dir_temp = "Temp";
+                string dir_files = "files";
+                string file_dumped_Loader = "dumped_Loader";
+                string file_decloader = "dec-Loader.bin";
+                string main_dec = "main_dec";
+                string main = "main";
+                string main_npdm = "main.npdm";
+                string fat_kip = "FS.kip1-fat.dec";
+                string exfat_kip = "FS.kip1-exfat.dec";
+
+
+                if (File.Exists(exfat_kip))
+                {
+                    File.Delete(exfat_kip);
+                }
+
+                if (File.Exists(fat_kip))
+                {
+                    File.Delete(fat_kip);
+                }
+
+                if (File.Exists(main_npdm))
+                {
+                    File.Delete(main_npdm);
+                }
+
+                if (File.Exists(main))
+                {
+                    File.Delete(main);
+                }
+
+                if (File.Exists(main_dec))
+                {
+                    File.Delete(main_dec);
+                }
+
+                if (File.Exists(file_decloader))
+                {
+                    File.Delete(file_decloader);
+                }
+
+                if (File.Exists(file_dumped_Loader))
+                {
+                    File.Delete(file_dumped_Loader);
+                }
+
+                if (Directory.Exists(dir_temp))
+                {
+                    DirectoryInfo directory = new DirectoryInfo(dir_temp);
+                    directory.Delete(true);
+                }
+                
+                if (Directory.Exists(dir_files))
+                {
+                    DirectoryInfo directory = new DirectoryInfo(dir_files);
+                    directory.Delete(true);
+                }
+
+                MessageBox.Show("Old temp and decrypted files have been cleaned up.", "Clean Up Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception error)
+            {
+                MessageBox.Show("Error is: " + error.Message);
+            }
+        }
     }
 
     public class Language
