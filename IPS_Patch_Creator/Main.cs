@@ -147,19 +147,20 @@ namespace IPS_Patch_Creator
             richTextBox_IPS_Patch_Creator.Text += "\n\n" + "Patches the Atmosphere NX Loader to allow the other patches to function correctly.";
 
             richTextBox_ES.Text = "ES IPS patch information.";
-            richTextBox_ES.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files + pirated games.";
-            richTextBox_ES.Text += "\n\n" + "This works the same as the Alt-ES python scripts.";
+            richTextBox_ES.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files and installed pirated games.";
+            richTextBox_ES.Text += "\n\n" + "This works the same as the Alt-ES python scripts (Use only for firmware 9.0.1 and above).";
 
             richTextBox_ES2.Text = "ES2 IPS patch information.";
-            richTextBox_ES2.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files + pirated games.";
-            richTextBox_ES2.Text += "\n\n" + "This works the same as the ES python scripts and is an alternative way to generate ES IPS patches.";
-            richTextBox_ES2.Text += "\n" + "(Use only for Firmware 9.0.1 and above, or if the ES patch generation from the previous tab fails).";
+            richTextBox_ES2.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files and installed pirated games.";
+            richTextBox_ES2.Text += "\n\n" + "(Use only for firmware 9.0.1 and above or if the ES patch generation from the previous tab fails).";
 
             richTextBox_FS.Text = "FS IPS patch information.\n\nThis process can take a few seconds, it may appear that the GUI has frozen while generating patches. Don't worry about this as it most likely hasn't and is just extracting some files.";
-            richTextBox_FS.Text += "\n\n" + "FS sigcheck patches are required to install and run NSP's.";
+            richTextBox_FS.Text += "\n\n" + "FS patches are required to install NSP and XCI (without needing to convert the header) files.";
+            richTextBox_FS.Text += "\n\n" + "(Use only for firmware 9.0.1 and above).";
 
             richTextBox_NFIM.Text = "NFIM IPS patch information.";
             richTextBox_NFIM.Text += "\n\n" + "NFIM patches skip the connection test to allow connections to networks without internet access or dns wildcard blocks (e.g. *nintendo*).";
+            richTextBox_NFIM.Text += "\n\n" + "(All current firmware versions are supported).";
 
             console_box.Text = "This page is for testing new routines.";
 
@@ -1132,6 +1133,19 @@ namespace IPS_Patch_Creator
                             }
                         }
 
+                        //quit if sdk version is wrong.
+                        string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                        int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                        if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                        {
+                            richTextBox_ES.ForeColor = Color.Red;
+                            richTextBox_ES.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                            MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            button_es_files.Enabled = true;
+                            return;
+                        }
+
                         //clear the console box since we don't need it now as we have all the info we need.
                         console_box.Clear();
 
@@ -1209,7 +1223,7 @@ namespace IPS_Patch_Creator
                             byte[] PatchBytes = new byte[] { 0xE0, 0x03, 0x1F, 0xAA };
                             byte[] PaddingBytes = new byte[] { 0x00, 0x04 };
 
-                            
+
                             if (SDKVersion >= 14300) //#fw 14.0.0 or higher patch override code
                             {
                                 if (checkBox_es_patch_override.Checked == true)
@@ -1311,7 +1325,7 @@ namespace IPS_Patch_Creator
                 //Remove the text and periods from the sdk variable
                 string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                 int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
-                
+
                 if (SDKVersion > 0 & SDKVersion < 9300 || SDKVersion == 011290 || SDKVersion == 82990) //#fix out of bounds error
                 {
                     toggle = 2;
@@ -1417,6 +1431,7 @@ namespace IPS_Patch_Creator
 
                 else if (toggle == 2)
                 {
+                    richTextBox_ES.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead";
                     MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -1808,6 +1823,19 @@ namespace IPS_Patch_Creator
                         }
                     }
 
+                    //quit if sdk version is wrong.
+                    string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                    int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                    {
+                        richTextBox_ES.ForeColor = Color.Red;
+                        richTextBox_ES.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        button_es_files.Enabled = true;
+                        return;
+                    }
+
                     //clear the console box since we don't need it now as we have all the info we need.
                     console_box.Clear();
 
@@ -1974,6 +2002,19 @@ namespace IPS_Patch_Creator
                             }
                         }
 
+                        //quit if sdk version is wrong.
+                        string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                        int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                        if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                        {
+                            richTextBox_ES2.ForeColor = Color.Red;
+                            richTextBox_ES2.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                            MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            button_es2_files.Enabled = true;
+                            return;
+                        }
+
                         //clear the console box since we don't need it now as we have all the info we need.
                         console_box.Clear();
                         if (sdk != "")
@@ -2020,7 +2061,8 @@ namespace IPS_Patch_Creator
                                 if (sdk_ver < 9300 || sdk_ver == 82990 || sdk_ver == 011290)
                                 {
                                     richTextBox_ES2.ForeColor = Color.Red;
-                                    richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead";
+                                    richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead\n\n";
+                                    MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     SystemSounds.Exclamation.Play();
                                 }
                             }
@@ -2456,6 +2498,19 @@ namespace IPS_Patch_Creator
                         }
                     }
 
+                    //quit if sdk version is wrong.
+                    string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                    int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                    {
+                        richTextBox_ES2.ForeColor = Color.Red;
+                        richTextBox_ES2.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        button_es2_files.Enabled = true;
+                        return;
+                    }
+
                     //clear the console box since we don't need it now as we have all the info we need.
                     console_box.Clear();
 
@@ -2503,7 +2558,8 @@ namespace IPS_Patch_Creator
                             if (sdk_ver < 9300 || sdk_ver == 82990 || sdk_ver == 011290)
                             {
                                 richTextBox_ES2.ForeColor = Color.Red;
-                                richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead";
+                                richTextBox_ES2.Text += "\n" + "Firmware is too old for ES2 patching, download pre-made patches instead\n\n";
+                                MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 SystemSounds.Exclamation.Play();
                             }
                         }
@@ -2921,7 +2977,7 @@ namespace IPS_Patch_Creator
                     find = ("........FD....................0313AAE003.AA").ToLower();
                     toggle = 1;
                 }
-                
+
                 else if (SDKVersion >= 1300 & SDKVersion < 7300)
                 {
                     find = ("........FD...................F30314AAE00314AA9F").ToLower();
@@ -3375,6 +3431,19 @@ namespace IPS_Patch_Creator
                             richTextBox_FS.Text += "\n" + sdk;
                             break;
                         }
+                    }
+
+                    //quit if sdk version is wrong.
+                    string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                    int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                    {
+                        richTextBox_FS.ForeColor = Color.Red;
+                        richTextBox_FS.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        button_fs_files.Enabled = true;
+                        return;
                     }
 
                     //lets check keys.dat exists or we won't be able to decrypt anything....
@@ -3969,14 +4038,19 @@ namespace IPS_Patch_Creator
                     string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                     int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
 
-                    if (SDKVersion > 0 & SDKVersion < 14300)
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                    {
+                        toggle = 1;
+                    }
+
+                    else if (SDKVersion >= 9300 & SDKVersion < 14300)
                     {
                         find = ("1e42b91fc14271").ToLower();
                         find2 = (".94081C00121F05007181000054").ToLower();
                         toggle = 0;
                     }
 
-                    else if (SDKVersion  >= 14300)
+                    else if (SDKVersion >= 14300)
                     {
                         if (checkBox_fs_override.Checked == true)
                         {
@@ -4037,6 +4111,13 @@ namespace IPS_Patch_Creator
                             richTextBox_FS.Text += "\n" + "Hex search pattern 2 was not found :-(";
                         }
                     }
+
+                    if (toggle == 1)
+                    {
+                        richTextBox_FS.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
                 }
                 else
                 {
@@ -4072,9 +4153,14 @@ namespace IPS_Patch_Creator
                     string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
                     int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
 
-                    if (SDKVersion > 0 & SDKVersion < 14300)
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
                     {
-                        
+                        toggle = 1;
+                    }
+
+                    else if (SDKVersion >= 9300 & SDKVersion < 14300)
+                    {
+
                         find = ("1e42b91fc14271").ToLower();
                         find2 = (".94081C00121F05007181000054").ToLower();
                         toggle = 0;
@@ -4141,6 +4227,12 @@ namespace IPS_Patch_Creator
                             richTextBox_FS.ForeColor = Color.Red;
                             richTextBox_FS.Text += "\n" + "Hex search pattern 2 was not found :-(";
                         }
+                    }
+
+                    if (toggle == 1)
+                    {
+                        richTextBox_FS.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        return;
                     }
                 }
                 else
@@ -4433,6 +4525,19 @@ namespace IPS_Patch_Creator
                             richTextBox_FS.Text += "\n" + sdk;
                             break;
                         }
+                    }
+
+                    //quit if sdk version is wrong.
+                    string strippedsdk = sdk.Replace("SDKVersion:", "").Replace(".", "");
+                    int SDKVersion = Int32.Parse(strippedsdk); //convert sdk to int
+
+                    if (SDKVersion < 9300 || SDKVersion == 82990 || SDKVersion == 011290)
+                    {
+                        richTextBox_FS.ForeColor = Color.Red;
+                        richTextBox_FS.Text += "\n" + "Firmware is too old for FS patching, download pre-made patches instead\n\n";
+                        MessageBox.Show("Only SDK versions 9.3.0.0 and above are supported by this tool. Download  pre-made sig patches.", "Firmware Not Supported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        button_fs_files.Enabled = true;
+                        return;
                     }
 
                     //lets check keys.dat exists or we won't be able to decrypt anything....
@@ -5030,7 +5135,7 @@ namespace IPS_Patch_Creator
                     //best we create a database then or we will get a crash
                     linkdatabase_make_tables();
                 }
-                
+
                 //connect to database
                 using var con = new SQLiteConnection(linkdatabase);
                 con.Open();
