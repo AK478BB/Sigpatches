@@ -1198,7 +1198,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
 
             button_es_files.Enabled = true;
@@ -1888,7 +1896,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
             button_es_files.Enabled = true;
         }
@@ -2084,7 +2100,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
 
             button_es2_files.Enabled = true;
@@ -2580,7 +2604,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
             button_es2_files.Enabled = true;
         }
@@ -2745,7 +2777,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
             button_nfim_files.Enabled = true;
         }
@@ -3336,7 +3376,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
 
             button_nfim_files.Enabled = true;
@@ -3525,7 +3573,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
 
             button_fs_files.Enabled = true;
@@ -4619,7 +4675,15 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                string warning = error.Message;
+                if (warning == "Input string was not in a correct format.")
+                {
+                    MessageBox.Show("Did you use the correct keys in keys.dat?", "Can't Decrypt the firmware", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error is: " + error.Message);
+                }
             }
 
             button_fs_files.Enabled = true;
