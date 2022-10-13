@@ -124,6 +124,7 @@ namespace IPS_Patch_Creator
             this.exploreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeAtmosphereFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removePatchesiniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cleanOldFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nCASizesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fTPSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,7 +150,6 @@ namespace IPS_Patch_Creator
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cleanOldFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Loader.SuspendLayout();
@@ -1199,6 +1199,13 @@ namespace IPS_Patch_Creator
             this.removePatchesiniToolStripMenuItem.Text = "Remove Patches.ini";
             this.removePatchesiniToolStripMenuItem.Click += new System.EventHandler(this.removePatchesiniToolStripMenuItem_Click);
             // 
+            // cleanOldFilesToolStripMenuItem
+            // 
+            this.cleanOldFilesToolStripMenuItem.Name = "cleanOldFilesToolStripMenuItem";
+            this.cleanOldFilesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.cleanOldFilesToolStripMenuItem.Text = "Remove Old Files";
+            this.cleanOldFilesToolStripMenuItem.Click += new System.EventHandler(this.cleanOldFilesToolStripMenuItem_Click);
+            // 
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1391,13 +1398,6 @@ namespace IPS_Patch_Creator
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // cleanOldFilesToolStripMenuItem
-            // 
-            this.cleanOldFilesToolStripMenuItem.Name = "cleanOldFilesToolStripMenuItem";
-            this.cleanOldFilesToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.cleanOldFilesToolStripMenuItem.Text = "Remove Old Files";
-            this.cleanOldFilesToolStripMenuItem.Click += new System.EventHandler(this.cleanOldFilesToolStripMenuItem_Click);
             // 
             // Main
             // 

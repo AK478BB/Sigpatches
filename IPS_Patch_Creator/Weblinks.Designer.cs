@@ -44,13 +44,13 @@
             this.button_add = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox_about = new System.Windows.Forms.RichTextBox();
-            this.groupBox_info = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox_info = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox_info.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox_info.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_Search
@@ -193,17 +193,6 @@
             this.richTextBox_about.TabIndex = 27;
             this.richTextBox_about.Text = "";
             // 
-            // groupBox_info
-            // 
-            this.groupBox_info.Controls.Add(this.richTextBox_about);
-            this.groupBox_info.Controls.Add(this.listView1);
-            this.groupBox_info.Location = new System.Drawing.Point(9, 102);
-            this.groupBox_info.Name = "groupBox_info";
-            this.groupBox_info.Size = new System.Drawing.Size(658, 293);
-            this.groupBox_info.TabIndex = 28;
-            this.groupBox_info.TabStop = false;
-            this.groupBox_info.Text = "Information";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,6 +214,17 @@
             this.pasteToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.pasteToolStripMenuItem.Text = "Paste";
             this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // groupBox_info
+            // 
+            this.groupBox_info.Controls.Add(this.richTextBox_about);
+            this.groupBox_info.Controls.Add(this.listView1);
+            this.groupBox_info.Location = new System.Drawing.Point(9, 102);
+            this.groupBox_info.Name = "groupBox_info";
+            this.groupBox_info.Size = new System.Drawing.Size(658, 293);
+            this.groupBox_info.TabIndex = 28;
+            this.groupBox_info.TabStop = false;
+            this.groupBox_info.Text = "Information";
             // 
             // Weblinks
             // 
@@ -249,8 +249,8 @@
             this.Text = "Weblinks";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox_info.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox_info.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
