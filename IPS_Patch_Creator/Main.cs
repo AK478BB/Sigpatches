@@ -144,19 +144,42 @@ namespace IPS_Patch_Creator
             }
 
             richTextBox_IPS_Patch_Creator.Text = "Loader IPS patch information.";
-            richTextBox_IPS_Patch_Creator.Text += "\n\n" + "Patches the Atmosphere NX Loader to allow installed homebrew NSP's/NRO forwarders to run.";
+            richTextBox_IPS_Patch_Creator.Text += "\n\n" + "Loader patches are required to:" +
+                "\nRun NRO forwarders." +
+                "\nRun installed XCI games." +
+                "\n" +
+                "\nLoader patches are NOT required to:" +
+                "\nRun installed NSP games (if a valid ticket exists)." +
+                "\nRun homebrew." +
+                "\nInstall NSP or XCI files.";
 
             richTextBox_ES.Text = "ES IPS patch information.";
-            richTextBox_ES.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files and installed pirated games.";
-            richTextBox_ES.Text += "\n\n" + "This works the same as the Alt-ES python scripts (Use only for firmware 9.0.1 and above).";
+            richTextBox_ES.Text += "\n\n" + "ES patches are required to:" +
+                "\nRun installed NSP files." +
+                "\nInstall NSP files without errors." +
+                "\n" +
+                "\nES patches are NOT required to:" +
+                "\nRun installed XCI files." +
+                "\nRun installed NRO forwarders." +
+                "\nRun homebrew." +
+                "\nInstall XCI files.";
 
-            richTextBox_ES2.Text = "ES2 IPS patch information.";
-            richTextBox_ES2.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files and installed pirated games.";
-            richTextBox_ES2.Text += "\n\n" + "(Use only for firmware 9.0.1 and above or if the ES patch generation from the previous tab fails).";
+            richTextBox_ES2.Text = "ES2 IPS patch information. (Use only for firmware 9.0.1 and above)";
+            richTextBox_ES2.Text += "\n\n" + "Eticket Service patches are for running raw and untouched NSP files and installed pirated games.\n(See previous tab for more information.)" +
+                "\n\nYou only need to run this if the previous ES tab failed to generate a working patch.";
 
-            richTextBox_FS.Text = "FS IPS patch information.\n\nThis process can take a few seconds, it may appear that the GUI has frozen while generating patches. Don't worry about this as it most likely hasn't and is just extracting some files.";
-            richTextBox_FS.Text += "\n\n" + "FS patches are required to install NSP and XCI (without needing to convert the header) files.";
-            richTextBox_FS.Text += "\n\n" + "(Use only for firmware 9.0.1 and above).";
+            richTextBox_FS.Text = "FS IPS patch information." +
+                "\n" +
+                "\nFS patches are required to:" +
+                "\nRun installed XCI games" +
+                "\nRun NRO forwarders." +
+                "\n(If FS patches are missing or wrong, you will get a corruption error when trying to run the installed XCI or NRO forwarder." +
+                "You will also need to re-install the XCI or NRO forwarder if this happens)" +
+                "\n" +
+                "\nFS patches are NOT required to:" +
+                "\nRun installed NSP files with valid tickets." +
+                "\nRun homebrew." +
+                "\nInstall NSP or XCI files (that contain valid headers).";
 
             richTextBox_NFIM.Text = "NFIM IPS patch information.";
             richTextBox_NFIM.Text += "\n\n" + "NFIM patches skip the connection test to allow connections to networks without internet access or dns wildcard blocks (e.g. *nintendo*).";
