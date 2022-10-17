@@ -95,7 +95,8 @@ namespace IPS_Patch_Creator
         UInt32 ES2_revloc; //variable to store bitshit data for es2 patches
         UInt32 ES2_revloc3; //variable to store bitshit data for es2 patches
         int theme; //Set default theme
-        int killfsroutine = 0;
+        int killfsroutine = 0; //stop patches.ini being written if offset search failed
+        int killesroutine = 0; //stop ips patches being written if offset search in es2 failed
         //Set size limits for nca files to process - read from config database.
         int ESmin;
         int ESmax;
@@ -1981,6 +1982,7 @@ namespace IPS_Patch_Creator
             button_es2_files.Enabled = false;
             try
             {
+                killesroutine = 0;
                 richTextBox_ES2.Clear();
                 minimum = ESmin;
                 maximum = ESmax;
@@ -2074,14 +2076,23 @@ namespace IPS_Patch_Creator
                                 //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                                 es2_Offset_Search();
 
-                                //We should now know where to patch, so make some folders to store the patch.
-                                ES_Patch_Folders();
-
-                                //Do some bitshifting...before making the patches.
-                                es2_bitshifting();
-
                                 //Everything should now be in place to make a patch
-                                ES2_Patch_Creation();
+                                if (killesroutine != 1)
+                                {
+                                    //We should now know where to patch, so make some folders to store the patch.
+                                    ES_Patch_Folders();
+
+                                    //Do some bitshifting...before making the patches.
+                                    es2_bitshifting();
+
+                                    //make the patches
+                                    ES2_Patch_Creation();
+                                }
+                                
+                                if (killesroutine == 1)
+                                {
+                                    richTextBox_ES2.Text += "\n\n" + "Not all the patch offsets were not found, no IPS files have been created!";
+                                }
 
                                 //clean up decrypted main file how we know the offsets
                                 if (checkBox_maindec_es2.Checked)
@@ -2229,6 +2240,7 @@ namespace IPS_Patch_Creator
                         {
                             richTextBox_ES2.ForeColor = Color.Red;
                             richTextBox_ES2.Text += "\n" + "Hex search pattern 3 was not found :-(";
+                            killesroutine = 1;
                         }
 
                         Match match2 = Regex.Match(str, find2);
@@ -2246,6 +2258,7 @@ namespace IPS_Patch_Creator
                         {
                             richTextBox_ES2.ForeColor = Color.Red;
                             richTextBox_ES2.Text += "\n" + "Hex search pattern 2 was not found :-(";
+                            killesroutine = 1;
                         }
 
                         //find first instance of pattern and store the index.
@@ -2276,6 +2289,7 @@ namespace IPS_Patch_Creator
                         {
                             richTextBox_ES2.ForeColor = Color.Red;
                             richTextBox_ES2.Text += "\n" + "Hex search pattern 1 was not found :-(";
+                            killesroutine = 1;
                         }
                     }
                 }
@@ -2283,6 +2297,7 @@ namespace IPS_Patch_Creator
                 {
                     richTextBox_ES2.ForeColor = Color.Red;
                     richTextBox_ES2.Text += "\n" + "main_dec was not found, unable to search for patches :-(";
+                    killesroutine = 1;
                 }
 
             }
@@ -2464,6 +2479,7 @@ namespace IPS_Patch_Creator
             }
             try
             {
+                killesroutine = 0;
                 richTextBox_ES2.Clear();
                 minimum = ESmin;
                 maximum = ESmax;
@@ -2587,14 +2603,23 @@ namespace IPS_Patch_Creator
                             //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                             es2_Offset_Search();
 
-                            //We should now know where to patch, so make some folders to store the patch.
-                            ES_Patch_Folders();
-
-                            //Do some bitshifting...before making the patches.
-                            es2_bitshifting();
-
                             //Everything should now be in place to make a patch
-                            ES2_Patch_Creation();
+                            if (killesroutine != 1)
+                            {
+                                //We should now know where to patch, so make some folders to store the patch.
+                                ES_Patch_Folders();
+
+                                //Do some bitshifting...before making the patches.
+                                es2_bitshifting();
+
+                                //make the patches
+                                ES2_Patch_Creation();
+                            }
+
+                            if (killesroutine == 1)
+                            {
+                                richTextBox_ES2.Text += "\n\n" + "Not all the patch offsets were not found, no IPS files have been created!";
+                            }
 
                             //clean up decrypted main file how we know the offsets
                             if (checkBox_maindec_es2.Checked)
