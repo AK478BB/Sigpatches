@@ -95,6 +95,7 @@ namespace IPS_Patch_Creator
         UInt32 ES2_revloc; //variable to store bitshit data for es2 patches
         UInt32 ES2_revloc3; //variable to store bitshit data for es2 patches
         int theme; //Set default theme
+        int killfsroutine = 0;
         //Set size limits for nca files to process - read from config database.
         int ESmin;
         int ESmax;
@@ -3457,6 +3458,7 @@ namespace IPS_Patch_Creator
             }
             try
             {
+                killfsroutine = 0;
                 richTextBox_FS.Clear();
                 FAT = ""; //Reset if we already used this function because the variable will contain some data
                 EXFAT = "";
@@ -3588,11 +3590,14 @@ namespace IPS_Patch_Creator
                             fs_fat_Patch_Creation();
                             fs_exfat_Patch_Creation();
 
-                            //show patches.ini info
-                            richTextBox_FS.Text += "\n\n" + "***************** Info for patches.ini *****************";
-                            fs_Fat_Patches_ini();
-                            fs_ExFat_Patches_ini();
-                            richTextBox_FS.Text += "\n**********************************************************";
+                            if (killfsroutine != 1)
+                            {
+                                //show patches.ini info
+                                richTextBox_FS.Text += "\n\n" + "***************** Info for patches.ini *****************";
+                                fs_Fat_Patches_ini();
+                                fs_ExFat_Patches_ini();
+                                richTextBox_FS.Text += "\n**********************************************************";
+                            }
 
                             //clean up decrypted files how we know the offsets
                             fs_dec_clean();
@@ -4504,6 +4509,7 @@ namespace IPS_Patch_Creator
                 {
                     richTextBox_FS.ForeColor = Color.Red;
                     richTextBox_FS.Text += "\n\n" + "Couldn't find patch offsets so FS fat ips patch was not written";
+                    killfsroutine = 1;
                 }
 
             }
@@ -4632,6 +4638,7 @@ namespace IPS_Patch_Creator
                 {
                     richTextBox_FS.ForeColor = Color.Red;
                     richTextBox_FS.Text += "\n" + "Couldn't find patch offsets so FS exfat ips patch was not written";
+                    killfsroutine = 1;
                 }
 
             }
@@ -4657,6 +4664,7 @@ namespace IPS_Patch_Creator
 
             try
             {
+                killfsroutine = 0;
                 richTextBox_FS.Clear();
                 FAT = ""; //Reset if we already used this function because the variable will contain some data
                 EXFAT = "";
@@ -4790,11 +4798,14 @@ namespace IPS_Patch_Creator
                             fs_fat_Patch_Creation();
                             fs_exfat_Patch_Creation();
 
-                            //show patches.ini info
-                            richTextBox_FS.Text += "\n\n" + "***************** Info for patches.ini *****************";
-                            fs_Fat_Patches_ini();
-                            fs_ExFat_Patches_ini();
-                            richTextBox_FS.Text += "\n**********************************************************";
+                            if (killfsroutine != 1)
+                            {
+                                //show patches.ini info
+                                richTextBox_FS.Text += "\n\n" + "***************** Info for patches.ini *****************";
+                                fs_Fat_Patches_ini();
+                                fs_ExFat_Patches_ini();
+                                richTextBox_FS.Text += "\n**********************************************************";
+                            }
 
                             //clean up decrypted files how we know the offsets
                             fs_dec_clean();

@@ -225,10 +225,10 @@ namespace IPS_Patch_Creator
             this.tabControl1.Controls.Add(this.tabPage_FS);
             this.tabControl1.Controls.Add(this.tabPage_NFIM);
             this.tabControl1.Controls.Add(this.tabPage_WCO);
-            this.tabControl1.Controls.Add(this.tabPage_test);
             this.tabControl1.Controls.Add(this.tabPage_keys);
             this.tabControl1.Controls.Add(this.tabPage_Base64);
             this.tabControl1.Controls.Add(this.tabPage_info);
+            this.tabControl1.Controls.Add(this.tabPage_test);
             this.tabControl1.Location = new System.Drawing.Point(9, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
