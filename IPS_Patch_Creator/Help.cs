@@ -6,7 +6,7 @@ namespace IPS_Patch_Creator
     public partial class Help : Form
     {
         readonly string pastebin = "https://pastebin.com/raw/Z99AZKhN";
-        //readonly string pastebin = "https://pastebin.com/raw/g4ASWDRA";
+        readonly string gists = "https://gist.githubusercontent.com/mrdude2478/aefe3e83dbcf143f2e02781b8442c3ed/raw/b295986586fb23147748fac547a27c8987b002cf/gistfile1.txt";
 
         public Help()
         {
@@ -27,14 +27,28 @@ namespace IPS_Patch_Creator
                 client.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.0.3705;)");
 
                 bool url = URLExists(pastebin);
+                bool alturl = URLExists(gists);
+                
                 if (url)
                 {
                     string ret = client.DownloadString(pastebin);
                     richTextBox1.Text = ret;
                 }
+                
                 else
                 {
-                    richTextBox1.Text = "URL unreachable";
+                    //backup url to use if pastebin is down.
+                    if (alturl)
+                    {
+                        string ret = client.DownloadString(gists);
+                        richTextBox1.Text = ret;
+                    }
+                    
+                    //if both url's are down, mabey we have an internet issue? - show unreachable
+                    else
+                    {
+                        richTextBox1.Text = "URL unreachable";
+                    }
                 }
             }
 
