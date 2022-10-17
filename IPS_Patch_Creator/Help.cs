@@ -6,7 +6,7 @@ namespace IPS_Patch_Creator
     public partial class Help : Form
     {
         readonly string pastebin = "https://pastebin.com/raw/Z99AZKhN";
-        readonly string gists = "https://gist.githubusercontent.com/mrdude2478/aefe3e83dbcf143f2e02781b8442c3ed/raw/b295986586fb23147748fac547a27c8987b002cf/gistfile1.txt";
+        readonly string gists = "https://gist.githubusercontent.com/mrdude2478/aefe3e83dbcf143f2e02781b8442c3ed/raw/8439e0da9fb44716c6cdb954a7c06818681e8b72/gistfile1.txt";
 
         public Help()
         {
