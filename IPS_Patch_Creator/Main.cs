@@ -97,6 +97,7 @@ namespace IPS_Patch_Creator
         int theme; //Set default theme
         int killfsroutine = 0; //stop patches.ini being written if offset search failed
         int killesroutine = 0; //stop ips patches being written if offset search in es2 failed
+        int killnfim = 0;
         //Set size limits for nca files to process - read from config database.
         int ESmin;
         int ESmax;
@@ -1181,7 +1182,18 @@ namespace IPS_Patch_Creator
                             Extract_nca();
 
                             //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                            Get_build();
+                            if (File.Exists("main_dec"))
+                            {
+                                Get_build();
+                            }
+                            else
+                            {
+                                richTextBox_ES.ForeColor = Color.Red;
+                                richTextBox_ES.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the ES size limits in the config settings if firmware is greater than 15.0.0.";
+                                button_es_files.Enabled = true;
+                                SystemSounds.Exclamation.Play();
+                                return;
+                            }
 
                             //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                             ES_Offset_Search();
@@ -1471,7 +1483,7 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                MessageBox.Show("ES Offset Search - Error is: " + error.Message);
             }
         }
 
@@ -1531,7 +1543,7 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                MessageBox.Show("Get Build - Error is: " + error.Message);
             }
         }
 
@@ -1624,7 +1636,7 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                MessageBox.Show("Extract NCA - Error is: " + error.Message);
             }
         }
 
@@ -1746,7 +1758,7 @@ namespace IPS_Patch_Creator
 
             catch (Exception error)
             {
-                MessageBox.Show("Error is: " + error.Message);
+                MessageBox.Show("ES Find - Error is: " + error.Message);
             }
         }
 
@@ -1879,7 +1891,18 @@ namespace IPS_Patch_Creator
                         Extract_nca();
 
                         //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                        Get_build();
+                        if (File.Exists("main_dec"))
+                        {
+                            Get_build();
+                        }
+                        else
+                        {
+                            richTextBox_ES.ForeColor = Color.Red;
+                            richTextBox_ES.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the ES size limits in the config settings if firmware is greater than 15.0.0.";
+                            button_es_files.Enabled = true;
+                            SystemSounds.Exclamation.Play();
+                            return;
+                        }
 
                         //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                         ES_Offset_Search();
@@ -2071,7 +2094,18 @@ namespace IPS_Patch_Creator
                                 Extract_nca();
 
                                 //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                                Get_build();
+                                if (File.Exists("main_dec"))
+                                {
+                                    Get_build();
+                                }
+                                else
+                                {
+                                    richTextBox_ES2.ForeColor = Color.Red;
+                                    richTextBox_ES2.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the ES size limits in the config settings if firmware is greater than 15.0.0.";
+                                    button_es2_files.Enabled = true;
+                                    SystemSounds.Exclamation.Play();
+                                    return;
+                                }
 
                                 //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                                 es2_Offset_Search();
@@ -2598,7 +2632,18 @@ namespace IPS_Patch_Creator
                             Extract_nca();
 
                             //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                            Get_build();
+                            if (File.Exists("main_dec"))
+                            {
+                                Get_build();
+                            }
+                            else
+                            {
+                                richTextBox_ES2.ForeColor = Color.Red;
+                                richTextBox_ES2.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the ES size limits in the config settings if firmware is greater than 15.0.0.";
+                                button_es2_files.Enabled = true;
+                                SystemSounds.Exclamation.Play();
+                                return;
+                            }
 
                             //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                             es2_Offset_Search();
@@ -2720,6 +2765,7 @@ namespace IPS_Patch_Creator
             }
             try
             {
+                killnfim = 0;
                 richTextBox_NFIM.Clear();
                 minimum = NFIMmin;
                 maximum = NFIMmax;
@@ -2749,6 +2795,15 @@ namespace IPS_Patch_Creator
 
                         //use hactool to find the nca we want.
                         nfim_find();
+                        
+                        if (killnfim !=0)
+                        {
+                            richTextBox_NFIM.ForeColor = Color.Red;
+                            richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
+                            SystemSounds.Exclamation.Play();
+                            button_nfim_files.Enabled = true;
+                            return;
+                        }
 
                         //remove item from array when we are done with it
                         int indexToRemove = 0; //remove item from index 0 in our list.
@@ -2791,7 +2846,18 @@ namespace IPS_Patch_Creator
                             nfim_Extract_nca();
 
                             //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                            nfim_Get_build();
+                            if (File.Exists("main_dec"))
+                            {
+                                nfim_Get_build();
+                            }
+                            else
+                            {
+                                richTextBox_NFIM.ForeColor = Color.Red;
+                                richTextBox_NFIM.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the NFIM size limits in the config settings if firmware is greater than 15.0.0.";
+                                button_nfim_files.Enabled = true;
+                                SystemSounds.Exclamation.Play();
+                                return;
+                            }
 
                             //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                             nfim_Offset_Search();
@@ -2946,6 +3012,10 @@ namespace IPS_Patch_Creator
                     long length = new System.IO.FileInfo(nca_path).Length;
                     richTextBox_NFIM.Text += "NFIM title found in " + NCA_file + " (" + length.ToString() + " bytes)\n";
                     richTextBox_NFIM.Text += "Skipped: " + (goodArray.Count() - 1).ToString() + " files\n";
+                }
+                else
+                {
+                    killnfim = 1;
                 }
 
             }
@@ -3303,6 +3373,7 @@ namespace IPS_Patch_Creator
             }
             try
             {
+                killnfim = 0;
                 richTextBox_NFIM.Clear();
                 minimum = NFIMmin;
                 maximum = NFIMmax;
@@ -3363,6 +3434,15 @@ namespace IPS_Patch_Creator
 
                     //use hactool to find the nca we want.
                     nfim_find();
+                    
+                    if (killnfim != 0)
+                    {
+                        richTextBox_NFIM.ForeColor = Color.Red;
+                        richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
+                        SystemSounds.Exclamation.Play();
+                        button_nfim_files.Enabled = true;
+                        return;
+                    }
 
                     //remove item from array when we are done with it
                     int indexToRemove = 0; //remove item from index 0 in our list.
@@ -3405,7 +3485,18 @@ namespace IPS_Patch_Creator
                         nfim_Extract_nca();
 
                         //get the build ID from main_dec - starts at offset 0x40 and is 0x14 long.
-                        nfim_Get_build();
+                        if (File.Exists("main_dec"))
+                        {
+                            nfim_Get_build();
+                        }
+                        else
+                        {
+                            richTextBox_NFIM.ForeColor = Color.Red;
+                            richTextBox_NFIM.Text = "Unable to decrypt, did you update your keys?\n\nTry adjusting the NFIM size limits in the config settings if firmware is greater than 15.0.0.";
+                            button_nfim_files.Enabled = true;
+                            SystemSounds.Exclamation.Play();
+                            return;
+                        }
 
                         //Now we know the build ID and SDK version and unpacked the nca to get the decrypted main file - we can search for offsets...
                         nfim_Offset_Search();
