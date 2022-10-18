@@ -3691,6 +3691,18 @@ namespace IPS_Patch_Creator
                                 fs_batch_extract();
                             }
 
+                            //error check - exit routine if we were unable to decrypt the fs files.
+                            if (!File.Exists("FS.kip1-FAT.DEC") || !File.Exists("FS.kip1-ExFAT.DEC"))
+                            {
+                                richTextBox_FS.ForeColor = Color.Red;
+                                richTextBox_FS.Text += "\n\nUnable to decrypt one or both of the FS files";
+                                richTextBox_FS.Text += "\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the files,";
+                                richTextBox_FS.Text += " or you may need to adjust the FS NCA settings in the config page.";
+                                button_fs_files.Enabled = true;
+                                SystemSounds.Exclamation.Play();
+                                return;
+                            }
+
                             //Get SHA256 values of FS.Kip1 from fat and exfat folder for our IPS patch names.
                             fs_fat_sha();
                             fs_exfat_sha();
@@ -4897,6 +4909,18 @@ namespace IPS_Patch_Creator
                             {
                                 //Use hactool batch way to extract nca files as it's faster.
                                 fs_batch_extract();
+                            }
+
+                            //error check - exit routine if we were unable to decrypt the fs files.
+                            if (!File.Exists("FS.kip1-FAT.DEC") || !File.Exists("FS.kip1-ExFAT.DEC"))
+                            {
+                                richTextBox_FS.ForeColor = Color.Red;
+                                richTextBox_FS.Text += "\n\nUnable to decrypt one or both of the FS files";
+                                richTextBox_FS.Text += "\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the files,";
+                                richTextBox_FS.Text += " or you may need to adjust the FS NCA settings in the config page.";
+                                button_fs_files.Enabled = true;
+                                SystemSounds.Exclamation.Play();
+                                return;
                             }
 
                             //Get SHA256 values of FS.Kip1 from fat and exfat folder for our IPS patch names.
