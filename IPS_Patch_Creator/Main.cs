@@ -62,7 +62,7 @@ namespace IPS_Patch_Creator
         /**************************************************/
         /**************** START OF VARIABLES **************/
         /**************************************************/
-        string Version = "1.5.6";
+        string Version = "1.5.6-2";
         string Loaderpath; //create variable for package3 file path location.
         string shaValue; //create a variable to store the sha256 value.
         string[] goodArray; //create an array to store firmware files we want to check.
