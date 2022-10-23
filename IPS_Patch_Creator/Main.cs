@@ -5126,7 +5126,7 @@ namespace IPS_Patch_Creator
                 richTextBox_FS.Text += "\n" + "#FAT - " + sdk;
                 richTextBox_FS.Text += "\n" + "[FS:" + shaval + "]";
                 
-                if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                 {
                     richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval + ":0x4:" + Fat_patches_ini1 + ",1F2003D5";
                     richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval2 + ":0x4:" + Fat_patches_ini2 + ",E0031F2A";
@@ -5151,7 +5151,7 @@ namespace IPS_Patch_Creator
                         sw.WriteLine("#FAT - " + sdk);
                         sw.WriteLine("[FS:" + shaval + "]");
                         
-                        if (SDKVersion >= 14300 & SDKVersion < 15300)
+                        if (SDKVersion < 15300)
                         {
                             sw.WriteLine(".nosigchk=0:0x" + hexval + ":0x4:" + Fat_patches_ini1 + ",1F2003D5");
                             sw.WriteLine(".nosigchk=0:0x" + hexval2 + ":0x4:" + Fat_patches_ini2 + ",E0031F2A");
@@ -5211,7 +5211,8 @@ namespace IPS_Patch_Creator
                 string shaval = EXFATSHA.Substring(0, 16);
                 richTextBox_FS.Text += "\n\n" + "#ExFAT - " + sdk;
                 richTextBox_FS.Text += "\n" + "[FS:" + shaval + "]";
-                if (SDKVersion >= 14300 & SDKVersion < 15300)
+                
+                if (SDKVersion < 15300)
                 {
                     richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval + ":0x4:" + ExFat_patches_ini1 + ",1F2003D5";
                     richTextBox_FS.Text += "\n" + ".nosigchk=0:0x" + hexval2 + ":0x4:" + ExFat_patches_ini2 + ",E0031F2A";
@@ -5235,7 +5236,7 @@ namespace IPS_Patch_Creator
                         sw.WriteLine("\n" + "#ExFAT - " + sdk);
                         sw.WriteLine("[FS:" + shaval + "]");
                         
-                        if (SDKVersion >= 14300 & SDKVersion < 15300)
+                        if (SDKVersion < 15300)
                         {
                             sw.WriteLine(".nosigchk=0:0x" + hexval + ":0x4:" + ExFat_patches_ini1 + ",1F2003D5");
                             sw.WriteLine(".nosigchk=0:0x" + hexval2 + ":0x4:" + ExFat_patches_ini2 + ",E0031F2A");
