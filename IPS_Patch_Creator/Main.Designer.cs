@@ -99,8 +99,6 @@ namespace IPS_Patch_Creator
             this.textBox_nfim_override = new System.Windows.Forms.TextBox();
             this.textBox_es_override = new System.Windows.Forms.TextBox();
             this.label_ES_Wildcard = new System.Windows.Forms.Label();
-            this.tabPage_test = new System.Windows.Forms.TabPage();
-            this.console_box = new System.Windows.Forms.RichTextBox();
             this.tabPage_keys = new System.Windows.Forms.TabPage();
             this.button_write_keys = new System.Windows.Forms.Button();
             this.button_sort_keys = new System.Windows.Forms.Button();
@@ -119,6 +117,8 @@ namespace IPS_Patch_Creator
             this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage_info = new System.Windows.Forms.TabPage();
             this.richTextBox_info = new System.Windows.Forms.RichTextBox();
+            this.tabPage_test = new System.Windows.Forms.TabPage();
+            this.console_box = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.exploreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exploreToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,6 +150,7 @@ namespace IPS_Patch_Creator
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_search = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Loader.SuspendLayout();
@@ -166,12 +167,12 @@ namespace IPS_Patch_Creator
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.tabPage_test.SuspendLayout();
             this.tabPage_keys.SuspendLayout();
             this.contextMenuStrip_keys.SuspendLayout();
             this.tabPage_Base64.SuspendLayout();
             this.contextMenuStrip_base64.SuspendLayout();
             this.tabPage_info.SuspendLayout();
+            this.tabPage_test.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -693,7 +694,7 @@ namespace IPS_Patch_Creator
             // checkBox_es_patch_override
             // 
             this.checkBox_es_patch_override.AutoSize = true;
-            this.checkBox_es_patch_override.Location = new System.Drawing.Point(12, 24);
+            this.checkBox_es_patch_override.Location = new System.Drawing.Point(5, 24);
             this.checkBox_es_patch_override.Name = "checkBox_es_patch_override";
             this.checkBox_es_patch_override.Size = new System.Drawing.Size(114, 17);
             this.checkBox_es_patch_override.TabIndex = 16;
@@ -726,7 +727,7 @@ namespace IPS_Patch_Creator
             // checkBox_ES_override
             // 
             this.checkBox_ES_override.AutoSize = true;
-            this.checkBox_ES_override.Location = new System.Drawing.Point(12, 5);
+            this.checkBox_ES_override.Location = new System.Drawing.Point(5, 5);
             this.checkBox_ES_override.Name = "checkBox_ES_override";
             this.checkBox_ES_override.Size = new System.Drawing.Size(128, 17);
             this.checkBox_ES_override.TabIndex = 11;
@@ -737,6 +738,7 @@ namespace IPS_Patch_Creator
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Controls.Add(this.button_search);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label_es_patch);
             this.panel1.Controls.Add(this.textBox_es_patch);
@@ -767,11 +769,11 @@ namespace IPS_Patch_Creator
             this.label1.AutoEllipsis = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(4, 156);
+            this.label1.Location = new System.Drawing.Point(86, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(378, 44);
+            this.label1.Size = new System.Drawing.Size(296, 36);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Do not enable the checkboxes if you don\'t know what they do!";
+            this.label1.Text = "Only enable the checkboxes if you know what they do!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label_es_patch
@@ -948,30 +950,6 @@ namespace IPS_Patch_Creator
             this.label_ES_Wildcard.Size = new System.Drawing.Size(82, 16);
             this.label_ES_Wildcard.TabIndex = 9;
             this.label_ES_Wildcard.Text = "ES Wildcard";
-            // 
-            // tabPage_test
-            // 
-            this.tabPage_test.Controls.Add(this.button_CBZ);
-            this.tabPage_test.Controls.Add(this.console_box);
-            this.tabPage_test.Controls.Add(this.button_wildcard);
-            this.tabPage_test.Controls.Add(this.button_mov);
-            this.tabPage_test.Location = new System.Drawing.Point(4, 22);
-            this.tabPage_test.Name = "tabPage_test";
-            this.tabPage_test.Size = new System.Drawing.Size(598, 262);
-            this.tabPage_test.TabIndex = 5;
-            this.tabPage_test.Text = "Test";
-            this.tabPage_test.UseVisualStyleBackColor = true;
-            // 
-            // console_box
-            // 
-            this.console_box.BackColor = System.Drawing.Color.Black;
-            this.console_box.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.console_box.ForeColor = System.Drawing.Color.Lime;
-            this.console_box.Location = new System.Drawing.Point(5, 6);
-            this.console_box.Name = "console_box";
-            this.console_box.Size = new System.Drawing.Size(586, 225);
-            this.console_box.TabIndex = 18;
-            this.console_box.Text = "";
             // 
             // tabPage_keys
             // 
@@ -1150,6 +1128,30 @@ namespace IPS_Patch_Creator
             this.richTextBox_info.Text = "";
             this.richTextBox_info.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.richTextBox_info_LinkClicked);
             // 
+            // tabPage_test
+            // 
+            this.tabPage_test.Controls.Add(this.button_CBZ);
+            this.tabPage_test.Controls.Add(this.console_box);
+            this.tabPage_test.Controls.Add(this.button_wildcard);
+            this.tabPage_test.Controls.Add(this.button_mov);
+            this.tabPage_test.Location = new System.Drawing.Point(4, 22);
+            this.tabPage_test.Name = "tabPage_test";
+            this.tabPage_test.Size = new System.Drawing.Size(598, 262);
+            this.tabPage_test.TabIndex = 5;
+            this.tabPage_test.Text = "Test";
+            this.tabPage_test.UseVisualStyleBackColor = true;
+            // 
+            // console_box
+            // 
+            this.console_box.BackColor = System.Drawing.Color.Black;
+            this.console_box.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.console_box.ForeColor = System.Drawing.Color.Lime;
+            this.console_box.Location = new System.Drawing.Point(5, 6);
+            this.console_box.Name = "console_box";
+            this.console_box.Size = new System.Drawing.Size(586, 225);
+            this.console_box.TabIndex = 18;
+            this.console_box.Text = "";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1290,14 +1292,14 @@ namespace IPS_Patch_Creator
             // weblinksToolStripMenuItem
             // 
             this.weblinksToolStripMenuItem.Name = "weblinksToolStripMenuItem";
-            this.weblinksToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.weblinksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.weblinksToolStripMenuItem.Text = "Weblinks";
             this.weblinksToolStripMenuItem.Click += new System.EventHandler(this.weblinksToolStripMenuItem_Click);
             // 
             // wildcardsToolStripMenuItem
             // 
             this.wildcardsToolStripMenuItem.Name = "wildcardsToolStripMenuItem";
-            this.wildcardsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.wildcardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.wildcardsToolStripMenuItem.Text = "Wildcards";
             this.wildcardsToolStripMenuItem.Click += new System.EventHandler(this.wildcardsToolStripMenuItem_Click);
             // 
@@ -1399,6 +1401,16 @@ namespace IPS_Patch_Creator
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
             // 
+            // button_search
+            // 
+            this.button_search.Location = new System.Drawing.Point(5, 169);
+            this.button_search.Name = "button_search";
+            this.button_search.Size = new System.Drawing.Size(75, 23);
+            this.button_search.TabIndex = 34;
+            this.button_search.Text = "Search";
+            this.button_search.UseVisualStyleBackColor = true;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
+            // 
             // Main
             // 
             this.AllowDrop = true;
@@ -1440,12 +1452,12 @@ namespace IPS_Patch_Creator
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tabPage_test.ResumeLayout(false);
             this.tabPage_keys.ResumeLayout(false);
             this.contextMenuStrip_keys.ResumeLayout(false);
             this.tabPage_Base64.ResumeLayout(false);
             this.contextMenuStrip_base64.ResumeLayout(false);
             this.tabPage_info.ResumeLayout(false);
+            this.tabPage_test.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1574,6 +1586,7 @@ namespace IPS_Patch_Creator
         private System.Windows.Forms.ToolStripMenuItem removeAtmosphereFolderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removePatchesiniToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cleanOldFilesToolStripMenuItem;
+        private System.Windows.Forms.Button button_search;
     }
 }
 

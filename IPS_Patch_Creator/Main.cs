@@ -6707,6 +6707,22 @@ namespace IPS_Patch_Creator
                 MessageBox.Show("Error is: " + error.Message);
             }
         }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Form search = new Form_search();
+                //this.Hide();
+                search.ShowDialog();
+                //this.Show();
+            }
+
+            catch (Exception error)
+            {
+                MessageBox.Show("Error is: " + error.Message);
+            }
+        }
     }
 
     public class Language
