@@ -152,7 +152,7 @@ namespace IPS_Patch_Creator
                 "\nRun installed XCI games." +
                 "\n" +
                 "\nLoader patches are NOT required to:" +
-                "\nRun installed NSP games (if a valid ticket exists)." +
+                "\nRun installed NSP games. (if a valid ticket exists)" +
                 "\nRun homebrew." +
                 "\nInstall NSP or XCI files.";
 
@@ -174,7 +174,7 @@ namespace IPS_Patch_Creator
             richTextBox_FS.Text = "FS IPS patch information." +
                 "\n" +
                 "\nFS patches are required to:" +
-                "\nRun installed XCI games" +
+                "\nRun installed XCI games." +
                 "\nRun NRO forwarders." +
                 "\n(If FS patches are missing or wrong, you will get a corruption error when trying to run the installed XCI or NRO forwarder." +
                 "You will also need to re-install the XCI or NRO forwarder if this happens)" +
@@ -182,11 +182,11 @@ namespace IPS_Patch_Creator
                 "\nFS patches are NOT required to:" +
                 "\nRun installed NSP files with valid tickets." +
                 "\nRun homebrew." +
-                "\nInstall NSP or XCI files (that contain valid headers).";
+                "\nInstall NSP or XCI files. (that contain valid headers)";
 
             richTextBox_NFIM.Text = "NFIM IPS patch information.";
             richTextBox_NFIM.Text += "\n\n" + "NFIM patches skip the connection test to allow connections to networks without internet access or dns wildcard blocks (e.g. *nintendo*).";
-            richTextBox_NFIM.Text += "\n\n" + "(All current firmware versions are supported).";
+            richTextBox_NFIM.Text += "\n\n" + "(All current firmware versions are supported)";
 
             console_box.Text = "This page is for testing new routines.";
 
@@ -2795,15 +2795,6 @@ namespace IPS_Patch_Creator
 
                         //use hactool to find the nca we want.
                         nfim_find();
-                        
-                        if (killnfim !=0)
-                        {
-                            richTextBox_NFIM.ForeColor = Color.Red;
-                            richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
-                            SystemSounds.Exclamation.Play();
-                            button_nfim_files.Enabled = true;
-                            return;
-                        }
 
                         //remove item from array when we are done with it
                         int indexToRemove = 0; //remove item from index 0 in our list.
@@ -2813,6 +2804,20 @@ namespace IPS_Patch_Creator
                         {
                             break;
                         }
+                    }
+
+                    if (!console_box.Text.Contains("found"))
+                    {
+                        killnfim = 1;
+                    }
+
+                    if (killnfim != 0)
+                    {
+                        richTextBox_NFIM.ForeColor = Color.Red;
+                        richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
+                        SystemSounds.Exclamation.Play();
+                        button_nfim_files.Enabled = true;
+                        return;
                     }
 
                     //lets check keys.dat exists or we won't be able to decrypt anything....
@@ -3013,11 +3018,6 @@ namespace IPS_Patch_Creator
                     richTextBox_NFIM.Text += "NFIM title found in " + NCA_file + " (" + length.ToString() + " bytes)\n";
                     richTextBox_NFIM.Text += "Skipped: " + (goodArray.Count() - 1).ToString() + " files\n";
                 }
-                else
-                {
-                    killnfim = 1;
-                }
-
             }
 
             catch (Exception error)
@@ -3434,15 +3434,6 @@ namespace IPS_Patch_Creator
 
                     //use hactool to find the nca we want.
                     nfim_find();
-                    
-                    if (killnfim != 0)
-                    {
-                        richTextBox_NFIM.ForeColor = Color.Red;
-                        richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
-                        SystemSounds.Exclamation.Play();
-                        button_nfim_files.Enabled = true;
-                        return;
-                    }
 
                     //remove item from array when we are done with it
                     int indexToRemove = 0; //remove item from index 0 in our list.
@@ -3452,6 +3443,20 @@ namespace IPS_Patch_Creator
                     {
                         break;
                     }
+                }
+
+                if (!console_box.Text.Contains("found"))
+                {
+                    killnfim = 1;
+                }
+
+                if (killnfim != 0)
+                {
+                    richTextBox_NFIM.ForeColor = Color.Red;
+                    richTextBox_NFIM.Text = "Unable to find the NFIM nca file.\n\nIt's possible that you need to update keys.dat with the latest key to decrypt the file.";
+                    SystemSounds.Exclamation.Play();
+                    button_nfim_files.Enabled = true;
+                    return;
                 }
 
                 //lets check keys.dat exists or we won't be able to decrypt anything....
@@ -4263,7 +4268,8 @@ namespace IPS_Patch_Creator
 
                 if (File.Exists("FS.kip1-fat.dec"))
                 {
-                    byte[] ByteBuffer = File.ReadAllBytes("FS.kip1-fat.dec");
+                    //byte[] ByteBuffer = File.ReadAllBytes("FS.kip1-fat.dec").Skip(0).Take(1000).ToArray(); //only read the first 1000.
+                    byte[] ByteBuffer = File.ReadAllBytes("FS.kip1-fat.dec").Skip(0).ToArray(); //skips to position to start reading from.
                     int toggle = 0; //add a toggle so we can switch between wildcard searching or specific bytes.
                     string find = ""; //variable pattern to use for wildcards.
                     string find2 = ""; //variable pattern to use for wildcards.
@@ -4312,8 +4318,8 @@ namespace IPS_Patch_Creator
                         }
                         else
                         {
-                            find = ("1C00121F0500714101").ToLower();
-                            find2 = ("0036883E").ToLower();
+                            find = ("9408...1F05.....54").ToLower(); //1C00121F0500714101
+                            find2 = ("003688...1F").ToLower(); //0036883E
                         }
                         toggle = 0;
                     }
@@ -4336,7 +4342,16 @@ namespace IPS_Patch_Creator
                         {
                             int index = match.Index;
                             index = index / 2; //make sure we divide by 2 again as we multiplied above...
-                            FATPatch1 = index - 5;
+                            
+                            if (SDKVersion < 15300)
+                            {
+                                FATPatch1 = index - 5;
+                            }
+                            else if (SDKVersion >= 15300)
+                            {
+                                FATPatch1 = index - 3;
+                            }
+
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern found at offset: 0x" + index.ToString("X8");
                             richTextBox_FS.Text += "\n" + "Probable patch1 offset location: 0x" + FATPatch1.ToString("X8");
                         }
@@ -4445,8 +4460,8 @@ namespace IPS_Patch_Creator
                         }
                         else
                         {
-                            find = ("1C00121F0500714101").ToLower();
-                            find2 = ("0036883E").ToLower();
+                            find = ("9408...1F05.....54").ToLower(); //1C00121F0500714101
+                            find2 = ("003688...1F").ToLower(); //0036883E
                         }
                         toggle = 0;
                     }
@@ -4469,7 +4484,14 @@ namespace IPS_Patch_Creator
                         {
                             int index = match.Index;
                             index = index / 2; //make sure we divide by 2 again as we multiplied above...
-                            ExFatPatch1 = index - 5;
+                            if (SDKVersion < 15300)
+                            {
+                                ExFatPatch1 = index - 5;
+                            }
+                            else if (SDKVersion >= 15300)
+                            {
+                                ExFatPatch1 = index - 3;
+                            }
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern found at offset: 0x" + index.ToString("X8");
                             richTextBox_FS.Text += "\n" + "Probable patch1 offset location: 0x" + ExFatPatch1.ToString("X8");
 
