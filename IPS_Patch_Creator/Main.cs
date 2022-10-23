@@ -4560,7 +4560,7 @@ namespace IPS_Patch_Creator
                             byte[] PatchBytes2 = new byte[] { 0xE0, 0x03, 0x1F, 0x2A };
                             byte[] PaddingBytes = new byte[] { 0x00, 0x04 };
 
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 if (checkBox_fs_patch_override.Checked == true)
                                 {
@@ -4612,7 +4612,7 @@ namespace IPS_Patch_Creator
 
                             writer.Write(PaddingBytes);
                             
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 writer.Write(PatchBytes);
                             }
@@ -4638,7 +4638,7 @@ namespace IPS_Patch_Creator
 
                             writer.Write(PaddingBytes);
                             
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 writer.Write(PatchBytes2);
                             }
@@ -4691,7 +4691,7 @@ namespace IPS_Patch_Creator
                             byte[] PatchBytes2 = new byte[] { 0xE0, 0x03, 0x1F, 0x2A };
                             byte[] PaddingBytes = new byte[] { 0x00, 0x04 };
 
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 if (checkBox_fs_patch_override.Checked == true)
                                 {
@@ -4743,7 +4743,7 @@ namespace IPS_Patch_Creator
 
                             writer.Write(PaddingBytes);
                             
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 writer.Write(PatchBytes);
                             }
@@ -4769,7 +4769,7 @@ namespace IPS_Patch_Creator
 
                             writer.Write(PaddingBytes);
                             
-                            if (SDKVersion >= 14300 & SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
+                            if (SDKVersion < 15300) //#fw 14.0.0 or higher patch override code
                             {
                                 writer.Write(PatchBytes2);
                             }
