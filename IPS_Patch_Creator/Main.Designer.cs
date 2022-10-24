@@ -80,6 +80,7 @@ namespace IPS_Patch_Creator
             this.checkBox_nfim_override = new System.Windows.Forms.CheckBox();
             this.checkBox_ES_override = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button_search = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label_es_patch = new System.Windows.Forms.Label();
             this.textBox_es_patch = new System.Windows.Forms.TextBox();
@@ -150,7 +151,6 @@ namespace IPS_Patch_Creator
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button_search = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage_Loader.SuspendLayout();
@@ -764,14 +764,24 @@ namespace IPS_Patch_Creator
             this.panel1.Size = new System.Drawing.Size(483, 202);
             this.panel1.TabIndex = 0;
             // 
+            // button_search
+            // 
+            this.button_search.Location = new System.Drawing.Point(5, 169);
+            this.button_search.Name = "button_search";
+            this.button_search.Size = new System.Drawing.Size(91, 23);
+            this.button_search.TabIndex = 34;
+            this.button_search.Text = "Search";
+            this.button_search.UseVisualStyleBackColor = true;
+            this.button_search.Click += new System.EventHandler(this.button_search_Click);
+            // 
             // label1
             // 
             this.label1.AutoEllipsis = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(86, 160);
+            this.label1.Location = new System.Drawing.Point(102, 160);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 36);
+            this.label1.Size = new System.Drawing.Size(280, 36);
             this.label1.TabIndex = 33;
             this.label1.Text = "Only enable the checkboxes if you know what they do!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1292,14 +1302,14 @@ namespace IPS_Patch_Creator
             // weblinksToolStripMenuItem
             // 
             this.weblinksToolStripMenuItem.Name = "weblinksToolStripMenuItem";
-            this.weblinksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.weblinksToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.weblinksToolStripMenuItem.Text = "Weblinks";
             this.weblinksToolStripMenuItem.Click += new System.EventHandler(this.weblinksToolStripMenuItem_Click);
             // 
             // wildcardsToolStripMenuItem
             // 
             this.wildcardsToolStripMenuItem.Name = "wildcardsToolStripMenuItem";
-            this.wildcardsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.wildcardsToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.wildcardsToolStripMenuItem.Text = "Wildcards";
             this.wildcardsToolStripMenuItem.Click += new System.EventHandler(this.wildcardsToolStripMenuItem_Click);
             // 
@@ -1400,16 +1410,6 @@ namespace IPS_Patch_Creator
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Visible = false;
-            // 
-            // button_search
-            // 
-            this.button_search.Location = new System.Drawing.Point(5, 169);
-            this.button_search.Name = "button_search";
-            this.button_search.Size = new System.Drawing.Size(75, 23);
-            this.button_search.TabIndex = 34;
-            this.button_search.Text = "Search";
-            this.button_search.UseVisualStyleBackColor = true;
-            this.button_search.Click += new System.EventHandler(this.button_search_Click);
             // 
             // Main
             // 

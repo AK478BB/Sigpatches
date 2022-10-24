@@ -58,6 +58,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(366, 22);
             this.textBox1.TabIndex = 10;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // button_clear
@@ -100,19 +101,20 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(366, 356);
             this.richTextBox1.TabIndex = 6;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = "Load a file and then enter the wildcard to search for in the box above, then pres" +
+    "s find! (only use hex values, spaces and periods for wildcards)";
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(103, 26);
             // 
             // copyToolStripMenuItem
             // 
             this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.copyToolStripMenuItem.Text = "Copy";
             this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 

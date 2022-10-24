@@ -1422,7 +1422,7 @@ namespace IPS_Patch_Creator
                     }
                     else
                     {
-                        find = ("FF97......52A9........FFC3").ToLower();
+                        find = ("FF97......52A9........FFC30491C0035FD6").ToLower();
                     }
                     toggle = 1;
                 }
@@ -6713,9 +6713,9 @@ namespace IPS_Patch_Creator
             try
             {
                 Form search = new Form_search();
-                //this.Hide();
+                this.Hide();
                 search.ShowDialog();
-                //this.Show();
+                this.Show();
             }
 
             catch (Exception error)
