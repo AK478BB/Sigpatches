@@ -1402,6 +1402,7 @@ namespace IPS_Patch_Creator
                     {
                         //wildcard patterns start here - always convert to lower case or regex won't work.
                         find = ("FF97.......A9........FFC3").ToLower();
+                        find = find.Replace(".", "..");
                         toggle = 1;
                     }
                 }
@@ -1409,6 +1410,7 @@ namespace IPS_Patch_Creator
                 else if (SDKVersion > 10400 & SDKVersion < 14300) //#start from fw 10.2.0 to 13.1.0
                 {
                     find = ("FF97.......A9........FFC3").ToLower();
+                    find = find.Replace(".", "..");
                     toggle = 1;
                 }
 
@@ -1423,6 +1425,7 @@ namespace IPS_Patch_Creator
                     else
                     {
                         find = ("FF97......52A9........FFC30491C0035FD6").ToLower();
+                        find = find.Replace(".", "..");
                     }
                     toggle = 1;
                 }
@@ -1455,7 +1458,11 @@ namespace IPS_Patch_Creator
                         hex.AppendFormat("{0:x2}", b);
 
                     string str = hex.ToString();
-                    find = find.Replace(".", "..");
+
+                    if (checkBox_ES_override.Checked == true)
+                    {
+                        find = find.Replace(" ", "");
+                    }
 
                     Match match = Regex.Match(str, find);
                     if (match.Success)
@@ -3142,24 +3149,28 @@ namespace IPS_Patch_Creator
                 if (SDKVersion < 1300 || SDKVersion == 011290)
                 {
                     find = ("........FD....................0313AAE003.AA").ToLower();
+                    find = find.Replace(".", "..");
                     toggle = 1;
                 }
 
                 else if (SDKVersion >= 1300 & SDKVersion < 7300)
                 {
                     find = ("........FD...................F30314AAE00314AA9F").ToLower();
+                    find = find.Replace(".", "..");
                     toggle = 1;
                 }
 
                 else if (SDKVersion >= 7300 & SDKVersion < 12300 || SDKVersion == 82990)
                 {
                     find = ("........FD.................FF97F30314AAE00314AA9F").ToLower();
+                    find = find.Replace(".", "..");
                     toggle = 1;
                 }
 
                 else if (SDKVersion >= 12300 & SDKVersion < 14300) // fw >12.x.x)
                 {
                     find = ("FD7BBDA9F50B00F9FD030091F44F02A9F50301AAF40300AA.FBFF97F30314AAE00314AA9F").ToLower();
+                    find = find.Replace(".", "..");
                     toggle = 1;
                 }
 
@@ -3173,6 +3184,7 @@ namespace IPS_Patch_Creator
                     else
                     {
                         find = ("........FD.................FF97F30314AAE00314AA9F").ToLower();
+                        find = find.Replace(".", "..");
                     }
                     toggle = 1;
                 }
@@ -3187,6 +3199,7 @@ namespace IPS_Patch_Creator
                     else
                     {
                         find = ("FD...........................F30314AAE00314AA9F").ToLower();
+                        find = find.Replace(".", "..");
                     }
                     toggle = 1;
                 }
@@ -3201,7 +3214,11 @@ namespace IPS_Patch_Creator
                         hex.AppendFormat("{0:x2}", b);
 
                     string str = hex.ToString();
-                    find = find.Replace(".", "..");
+                    
+                    if (checkBox_nfim_override.Checked == true)
+                    {
+                        find = find.Replace(" ", "");
+                    }
 
                     Match match = Regex.Match(str, find);
                     if (match.Success)
@@ -4287,6 +4304,8 @@ namespace IPS_Patch_Creator
                     {
                         find = ("1e42b91fc14271").ToLower();
                         find2 = (".94081C00121F05007181000054").ToLower();
+                        find = find.Replace(".", "..");
+                        find2 = find2.Replace(".", "..");
                         toggle = 0;
                     }
 
@@ -4303,6 +4322,8 @@ namespace IPS_Patch_Creator
                         {
                             find = ("1e42b91fc14271").ToLower();
                             find2 = (".94081C00121F05007181000054").ToLower();
+                            find = find.Replace(".", "..");
+                            find2 = find2.Replace(".", "..");
                         }
                         toggle = 0;
                     }
@@ -4320,6 +4341,8 @@ namespace IPS_Patch_Creator
                         {
                             find = ("9408...1F05.....54").ToLower(); //1C00121F0500714101
                             find2 = ("003688...1F").ToLower(); //0036883E
+                            find = find.Replace(".", "..");
+                            find2 = find2.Replace(".", "..");
                         }
                         toggle = 0;
                     }
@@ -4334,8 +4357,12 @@ namespace IPS_Patch_Creator
                             hex.AppendFormat("{0:x2}", b);
 
                         string str = hex.ToString();
-                        find = find.Replace(".", "..");
-                        find2 = find2.Replace(".", "..");
+                        
+                        if (checkBox_fs_override.Checked == true)
+                        {
+                            find = find.Replace(" ", "");
+                            find2 = find2.Replace(" ", "");
+                        }
 
                         Match match = Regex.Match(str, find);
                         if (match.Success)
@@ -4345,11 +4372,25 @@ namespace IPS_Patch_Creator
                             
                             if (SDKVersion < 15300)
                             {
-                                FATPatch1 = index - 5;
+                                if (checkBox_fs_override.Checked == true)
+                                {
+                                    FATPatch1 = index;
+                                }
+                                else
+                                {
+                                    FATPatch1 = index - 5;
+                                }
                             }
                             else if (SDKVersion >= 15300)
                             {
-                                FATPatch1 = index - 3;
+                                if (checkBox_fs_override.Checked == true)
+                                {
+                                    FATPatch1 = index;
+                                }
+                                else
+                                {
+                                    FATPatch1 = index - 3;
+                                }
                             }
 
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern found at offset: 0x" + index.ToString("X8");
@@ -4366,7 +4407,15 @@ namespace IPS_Patch_Creator
                         {
                             int index = match2.Index;
                             index = index / 2; //make sure we divide by 2 again as we multiplied above...
-                            FATPatch2 = index - 2;
+                            
+                            if (checkBox_fs_override.Checked == true)
+                            {
+                                FATPatch2 = index;
+                            }
+                            else
+                            {
+                                FATPatch2 = index - 2;
+                            }
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern2 found at offset: 0x" + index.ToString("X8");
                             richTextBox_FS.Text += "\n" + "Probable patch2 offset location: 0x" + FATPatch2.ToString("X8");
 
@@ -4429,6 +4478,8 @@ namespace IPS_Patch_Creator
 
                         find = ("1e42b91fc14271").ToLower();
                         find2 = (".94081C00121F05007181000054").ToLower();
+                        find = find.Replace(".", "..");
+                        find2 = find2.Replace(".", "..");
                         toggle = 0;
                     }
 
@@ -4445,6 +4496,8 @@ namespace IPS_Patch_Creator
                         {
                             find = ("1e42b91fc14271").ToLower();
                             find2 = (".94081C00121F05007181000054").ToLower();
+                            find = find.Replace(".", "..");
+                            find2 = find2.Replace(".", "..");
                         }
                         toggle = 0;
                     }
@@ -4462,6 +4515,8 @@ namespace IPS_Patch_Creator
                         {
                             find = ("9408...1F05.....54").ToLower(); //1C00121F0500714101
                             find2 = ("003688...1F").ToLower(); //0036883E
+                            find = find.Replace(".", "..");
+                            find2 = find2.Replace(".", "..");
                         }
                         toggle = 0;
                     }
@@ -4476,9 +4531,13 @@ namespace IPS_Patch_Creator
                             hex.AppendFormat("{0:x2}", b);
 
                         string str = hex.ToString();
-                        find = find.Replace(".", "..");
-                        find2 = find2.Replace(".", "..");
 
+                        if (checkBox_fs_override.Checked == true)
+                        {
+                            find = find.Replace(" ", "");
+                            find2 = find2.Replace(" ", "");
+                        }
+                        
                         Match match = Regex.Match(str, find);
                         if (match.Success)
                         {
@@ -4486,11 +4545,25 @@ namespace IPS_Patch_Creator
                             index = index / 2; //make sure we divide by 2 again as we multiplied above...
                             if (SDKVersion < 15300)
                             {
-                                ExFatPatch1 = index - 5;
+                                if (checkBox_fs_override.Checked == true)
+                                {
+                                    ExFatPatch1 = index;
+                                }
+                                else
+                                {
+                                    ExFatPatch1 = index - 5;
+                                }
                             }
                             else if (SDKVersion >= 15300)
                             {
-                                ExFatPatch1 = index - 3;
+                                if (checkBox_fs_override.Checked == true)
+                                {
+                                    ExFatPatch1 = index;
+                                }
+                                else
+                                {
+                                    ExFatPatch1 = index - 3;
+                                }
                             }
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern found at offset: 0x" + index.ToString("X8");
                             richTextBox_FS.Text += "\n" + "Probable patch1 offset location: 0x" + ExFatPatch1.ToString("X8");
@@ -4507,7 +4580,15 @@ namespace IPS_Patch_Creator
                         {
                             int index = match2.Index;
                             index = index / 2; //make sure we divide by 2 again as we multiplied above...
-                            ExFatPatch2 = index - 2;
+
+                            if (checkBox_fs_override.Checked == true)
+                            {
+                                ExFatPatch2 = index;
+                            }
+                            else
+                            {
+                                ExFatPatch2 = index - 2;
+                            }
                             richTextBox_FS.Text += "\n" + "Wildcard search pattern2 found at offset: 0x" + index.ToString("X8");
                             richTextBox_FS.Text += "\n" + "Probable patch2 offset location: 0x" + ExFatPatch2.ToString("X8");
 

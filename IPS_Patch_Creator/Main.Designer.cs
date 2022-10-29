@@ -908,7 +908,7 @@ namespace IPS_Patch_Creator
             this.textBox_fs2_overide.Name = "textBox_fs2_overide";
             this.textBox_fs2_overide.Size = new System.Drawing.Size(377, 20);
             this.textBox_fs2_overide.TabIndex = 16;
-            this.textBox_fs2_overide.Text = ".94081C00121F05007181000054";
+            this.textBox_fs2_overide.Text = "....0.94081C00121F050071.10.0054..0.0037..........0..0";
             this.textBox_fs2_overide.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_fs1_override
@@ -918,7 +918,7 @@ namespace IPS_Patch_Creator
             this.textBox_fs1_override.Name = "textBox_fs1_override";
             this.textBox_fs1_override.Size = new System.Drawing.Size(377, 20);
             this.textBox_fs1_override.TabIndex = 14;
-            this.textBox_fs1_override.Text = "1E42B91FC14271";
+            this.textBox_fs1_override.Text = ".0..0036........1F....71....0054..1E48391F..0071";
             this.textBox_fs1_override.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_nfim_wildcard
@@ -938,7 +938,7 @@ namespace IPS_Patch_Creator
             this.textBox_nfim_override.Name = "textBox_nfim_override";
             this.textBox_nfim_override.Size = new System.Drawing.Size(377, 20);
             this.textBox_nfim_override.TabIndex = 10;
-            this.textBox_nfim_override.Text = "FD........................FBFF97F30314AAE00314AA9F";
+            this.textBox_nfim_override.Text = "F....D..F...0..9FD..0...F...0...........................F30314AAE00314AA9F\r\n";
             this.textBox_nfim_override.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox_es_override
@@ -948,7 +948,7 @@ namespace IPS_Patch_Creator
             this.textBox_es_override.Name = "textBox_es_override";
             this.textBox_es_override.Size = new System.Drawing.Size(377, 20);
             this.textBox_es_override.TabIndex = 8;
-            this.textBox_es_override.Text = "FF97......52A9........FFC3";
+            this.textBox_es_override.Text = "FF97............52A9................FFC30491C0035FD6\r\n";
             this.textBox_es_override.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label_ES_Wildcard
