@@ -16,6 +16,6 @@ ES Patch，FS Patch和Loader Patch是签名补丁，nfim ctest是跳过任天堂
 
 （4）nfim ctest在SD卡的atmosphere/exefs_patches/nfim_ctest，和SW系统有关，建议保留旧的nfim ctest。
 
-（5）大气层系统分fss0引导和fusee引导，fss0引导的FS Patch和Loader Patch在SD卡的bootloader/patches.ini，不同于fusee引导。
+（5）大气层系统分fss0引导（真实、虚拟、正版系统）和fusee引导（自动识别），fss0引导的FS Patch和Loader Patch在SD卡的bootloader/patches.ini，不同于fusee引导。
 
 但是fss0引导的ES Patch和nfim ctest，与fusee引导一样，没有区别。
