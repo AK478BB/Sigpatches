@@ -4,11 +4,11 @@ ES Patch，FS Patch和Loader Patch是签名补丁，nfim ctest是跳过任天堂
 
 （1）ES Patch在SD卡的atmosphere/exefs_patches/es_patches，对应SW系统，每次SW系统大版本升级会需要新增1个IPS。
 
-建议保留旧的ES Patch，如果系统降级后需要玩破解游戏，就会需要对应旧的ES Patch。
+建议保留旧的ES Patch，如果系统降级后需要玩破解游戏，就会需要对应旧的ES Patch，ES补丁允许你从Eshop商店dump出来的原版NSP（含压缩格式NSZ）游戏文件安装和正常运行。
 
 （2）FS Patch在SD卡的atmosphere/kip_patches/fs_patches，对应SW系统，每次SW系统大版本升级会需要新增2个IPS（exfat和fat32）。
 
-同上，建议保留旧的FS Patch，如果系统降级后需要玩破解游戏，就会需要对应旧的FS Patch。
+同上，建议保留旧的FS Patch，如果系统降级后需要玩破解游戏，就会需要对应旧的FS Patch，FS补丁允许你使用非原版NSP文件（NSP，NSZ，XCI，XCZ）的安装和正常运行，包括NRO插件转NSP格式，整合版XCI，NSP等格式。
 
 （3）Loader Patch在SD卡的atmosphere/kip_patches/loader_patches，对应大气层package3，每次大气层版本升级需要新增1个IPS。
 
