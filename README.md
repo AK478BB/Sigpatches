@@ -14,7 +14,7 @@ https://www.tekqart.com/thread-289271-1-1.html
 
 所以这种三件套（也可以说四件套）=atmosphere+hekate+sys-patch+tesla，Tesla用于调用sys-patch的菜单。
 
-https://www.tekqart.com/thread-382597-1-1.html
+https://github.com/impeeza/sys-patch/releases
 
 （3）大神编译大气层1.7.0的核心文件，atmosphere/package3，atmosphere/stratosphere.romfs，可以把loader patch限制去掉，还可以把sigpatch的fs补丁内置，payload引导fusee.bin是不需要编译的。
 
