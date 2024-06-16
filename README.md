@@ -12,11 +12,15 @@ https://www.tekqart.com/thread-289271-1-1.html
 
 （2）sigpatch可以是IPS加载，也可以是通过sys-patch的插件签名补丁的方法，目前原版sys-patch被删库，后续有大神接着开发，论坛有转载，相当于不需要sigpatch组件，直接在破解系统里sysmodule启动，通过Tesla选择是否开启sigpatch，这样就能玩破解游戏了。
 
+sys-patch插件同时支持fusee引导和fss0引导，所以hekate_ipl.ini中的fss0引导不需要设置kip1patch=nosigchk，也不需要patches.ini。
+
 所以这种三件套（也可以说四件套）=atmosphere+hekate+sys-patch+tesla，Tesla用于调用sys-patch的菜单。
 
-https://github.com/impeeza/sys-patch/releases
+莱莱大佬发布集成sys-patch插件的大气层整合包
 
-（3）大神编译大气层1.7.0的核心文件，atmosphere/package3，atmosphere/stratosphere.romfs，可以把loader patch限制去掉，还可以把sigpatch的fs补丁内置，payload引导fusee.bin是不需要编译的。
+https://www.tekqart.com/thread-391203-1-1.html
+
+（3）lsp大佬编译大气层1.7.0的核心文件，atmosphere/package3，atmosphere/stratosphere.romfs，fusee.bin，可以把loader patch限制去掉，还可以把sigpatch的fs补丁内置。
 
 https://www.tekqart.com/thread-382514-1-1.html
 
@@ -25,8 +29,6 @@ https://www.tekqart.com/thread-382514-1-1.html
 https://www.tekqart.com/thread-321617-1-1.html
 
 可以覆盖，只是在Hekate_ipl.ini里不选择fusee引导（cfw auto），也是作为1.7.0大气层之后的解决玩破解游戏的方法。
-
-
 
 
 Sigpatch又名大气层签名补丁，允许大气层系统运行破解游戏和前端软件。
