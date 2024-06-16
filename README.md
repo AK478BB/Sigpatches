@@ -10,9 +10,7 @@ https://www.tekqart.com/thread-289271-1-1.html
 
 左起1，2，3都是fss0引导，最右4是fusee引导。
 
-（2）sigpatch可以是IPS加载，也可以是通过sys-patch的插件签名补丁的方法，目前原版sys-patch被删库，后续有大神接着开发，论坛有转载，相当于不需要sigpatch组件，直接在破解系统里sysmodule启动，通过Tesla选择是否开启sigpatch，这样就能玩破解游戏了。
-
-sys-patch插件同时支持fusee引导和fss0引导，所以hekate_ipl.ini中的fss0引导不需要设置kip1patch=nosigchk，也不需要patches.ini。
+（2）sigpatch可以是IPS加载，也可以是通过sys-patch的插件签名补丁的方法，相当于不需要sigpatch组件，直接在破解系统里sysmodule启动，通过Tesla选择是否开启sigpatch，这样就能玩破解游戏了。sys-patch插件同时支持fusee引导和fss0引导，所以hekate_ipl.ini中的fss0引导不需要设置kip1patch=nosigchk，也不需要patches.ini。
 
 所以这种三件套（也可以说四件套）=atmosphere+hekate+sys-patch+tesla，Tesla用于调用sys-patch的菜单。
 
