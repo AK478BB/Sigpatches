@@ -1,3 +1,5 @@
+2025.6.15，第二版大气层1.9.1三件套发布，更新zdm大佬最新atmosphere-1.9.1，在system_settings.ini中加一条参数add_nintendo_blocking_to_dns_hosts = u8!0x0，可以删除atmosphere/hosts/sysmmc.txt和显示真实系统序列号，解决真实（破解）系统联机问题，更新config_templates/中的AK大气层整合包模板配置文件，更新CommonProblemResolver--v0.3.4。
+
 【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法
 
 大气层1.7.0开始，SciresM大神删除KIP的加载功能，原来只是为了nogc卡槽保护，但是这个功能已集成在stratosphere.romfs内核中，通过stratosphere.ini调设定，不需要额外补丁。这个删除KIP的功能会影响FS补丁的加载，极限超频的loader.kip等一系列问题。
