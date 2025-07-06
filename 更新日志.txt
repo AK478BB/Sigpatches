@@ -1,6 +1,20 @@
 -------------------------------------------------
 更新日志
 -------------------------------------------------
+2025.6.15，第二版大气层1.9.1三件套发布，更新zdm大佬最新atmosphere-1.9.1，在system_settings.ini中加一条参数add_nintendo_blocking_to_dns_hosts = u8!0x0，可以删除atmosphere/hosts/sysmmc.txt和显示真实系统序列号，解决真实（破解）系统联机问题，更新config_templates/中的AK大气层整合包模板配置文件，更新CommonProblemResolver--v0.3.4。
+-------------------------------------------------
+2025.6.1，第一版大气层1.9.1三件套发布，更新zdm大佬发布的内置签名补丁的atmosphere-1.9.1-master-with sigpatch，hekate_ctcaer_6.3.1_Nyx_1.7.0，Sigpatches for Atmosphere 1.9.1，Lockpick_RCM--v1.9.15，更新Hekate_ipl.ini配置的模板，见【可覆盖升级三件套升级AK大气层核心包的方法】。
+目前大佬发布的内置签名补丁唯一存在bug：在“真实破解系统”下，即使删除hosts和解除隐藏序列号后，仍然无法正常联网任天堂服务器，玩单机正版游戏无任何影响，而原版大气层1.9.1无此问题。所以如果想正版游戏联机，要切换进“真实正版系统”。
+如果想正版联机又使用插件的，可以考虑换成原版大气层，采用FSS0引导sigpatch或sys-patch插件这两种办法。参考【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法的中的第（1）和第（2）。
+-------------------------------------------------
+20250530版更新zdm大佬发布的内置签名补丁的atmosphere-1.9.1-master-with sigpatch，hekate_ctcaer_6.3.1_Nyx_1.7.0，Sigpatches for Atmosphere 1.9.1，Lockpick_RCM--v1.9.15，更新Hekate_ipl.ini配置的模板。
+-------------------------------------------------
+2025.5.8，第四版大气层1.9.0测试版三件套发布，更新lsp199308编译的atmosphere-1.9.0-20_support-9dd8269f7-dirty，sigpatch已内置（ES，FS，LOADER，NIM，NIFM内置），替换atmosphere/package3，atmosphere/stratosphere.romfs，bootloader/payloads/fusee.bin这三个文件即可。这样大气层自动识别也能正常玩破解游戏不受影响。参考【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法。
+-------------------------------------------------
+2025.5.5，第三版大气层1.9.0测试版三件套发布，更新官方atmosphere-1.9.0-preprerelease--9dd8269f7，hekate_ctcaer_6.2.5-20.0.0_support_test，大气层test版本的fusee.bin未去除fs和loader限制，所以也不能用fusee引导，只能用fss0引导的真实系统和虚拟系统。
+目前只有loader patch，支持20.0.1的FS patch不确定是否有效，ES，nfimctest和nim的patch都没有。虽然目前真实和虚拟系统都支持20.0.1，但是依然存在降级系统如果不初始化还原网络设置，会出现报错。所以虚拟系统建议停留在19.0.1，正版系统误升级的也不要去降级，新机破解的除外。
+总结：大气层三件套更新支持SW20.0.1，但也适合有正版系统需求的小伙伴，虚拟系统建议依旧保持19.0.1，如果真的想在虚拟系统20.0.1里玩破解游戏，要么等sigpatch完善，要么额外下最新的sys-patch插件，好像已有支持，参考【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法。
+-------------------------------------------------
 2025.5.4，第二版大气层1.9.0测试版三件套发布，更新emummc.kipm，支持虚拟系统20.0.1，但目前虚拟系统20.0.1还存在sigpatch，账号nim等问题未解决，所以虚拟系统20.0.1只能开飞行，不可离线绑定账号，只用于新机破解初始化系统20.0.1后制作虚拟系统20.0.1后再降级到19.0.1使用。
 -------------------------------------------------
 2025.5.3，第一版大气层1.9.0测试版三件套发布，这只是测试版，不是预览版，仅供测试。更新atmosphere-1.9.0-QA_TESTING-preprerelease-20_supports，hekate_ctcaer_6.2.2_Nyx_1.6.4_dirty英文，Lockpick_RCM--v1.9.14，熔断21的warmboot_mariko补丁wb_15.bin。Switch20.0.0/20.0.1的sigpatch的还不完善，大佬发的sigpatch的工具Sigpatch-IPS-Creator V1.5.9还未更新，大气层test版本的fusee.bin未去除fs和loader限制，所以也不能用fusee引导，只能用fss0引导的真实系统和虚拟系统。
@@ -107,3 +121,5 @@ AK大气层整合包里Hekate_ipl启动设置是命名fusee.bin，别人整合�
 2022.10.14，修复es补丁
 本人疏漏，用的老软件做了ES补丁，导致无效，感谢Yuanbanban大佬的提醒，用了他提供的ES补丁和NFIM替换，使用没问题，以后本人也会用新的签名补丁软件。还增加汉化Hekate5.9.0的文件，支持15.0.0的Lockpick_RCM.bin，可抓取新的Masterkey。
 之前已下三件套升级文件的尽快覆盖更新第二版，还有我发布的AK大气层1.4.0pre整合包1013版也可以覆盖更新，修复ES补丁错误，可正常安装新游戏了。
+
+
