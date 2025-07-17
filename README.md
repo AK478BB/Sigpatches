@@ -1,4 +1,4 @@
-2025.6.15，第二版大气层1.9.1三件套发布，更新zdm大佬最新atmosphere-1.9.1，在system_settings.ini中加一条参数add_nintendo_blocking_to_dns_hosts = u8!0x0，可以删除atmosphere/hosts/sysmmc.txt和显示真实系统序列号，解决真实（破解）系统联机问题，更新config_templates/中的AK大气层整合包模板配置文件，更新CommonProblemResolver--v0.3.4。
+2025.7.17，第一版大气层1.9.2三件套发布，更新atmosphere-1.9.2-master-af859d9e6最高支持20.2.0，Hekate6.3.1无需更新就支持20.2.0，更新Sigpatches（其中Loader和nim有变化，ES、FS和NFIM无需更新）。因为是原版atmosphere，大气层-自动识别fusee引导不支持sigpatch，不能玩破解游戏，等大佬编译大气层1.9.2内置sigpatch后再替换。
 
 【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法
 
