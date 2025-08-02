@@ -1,4 +1,4 @@
-2025.7.19，第二版大气层1.9.2三件套发布，更新zdm大佬最新内置sigpatch的atmosphere-1.9.2（替换atmosphere/package3，atmosphere/stratosphere.romfs，bootloader/payloads/fusee.bin这三个文件即可），sigpatch支持fusee和fss0的引导，在大气层模板文件system_settings.ini中加系统通知参数段[ns.notification]可解决后台wifi下发送数据导致耗电异常的问题。
+2025.8.3，第一版大气层1.9.3三件套发布，更新zdm大佬最新内置sigpatch的atmosphere-1.9.3，最高支持switch20.3.0系统，（在原版大气层1.9.3基础上，只需要替换atmosphere/package3，atmosphere/stratosphere.romfs，bootloader/payloads/fusee.bin这三个文件即可），sigpatch支持fusee和fss0的引导。
 
 【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法
 
