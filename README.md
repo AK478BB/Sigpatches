@@ -1,4 +1,4 @@
-2025.9.5，第一版大气层1.9.4三件套发布，更新zdm大佬最新内置sigpatch的atmosphere-1.9.4，最高支持switch20.4.0系统，（在原版大气层1.9.4基础上，只需要替换atmosphere/package3，atmosphere/stratosphere.romfs，bootloader/payloads/fusee.bin这三个文件即可），sigpatch支持fusee和fss0的引导。
+2025.10.29，第一版大气层1.9.5三件套发布，更新zdm大佬最新内置sigpatch的atmosphere-1.9.5，最高支持switch20.5.0系统，（在原版大气层1.9.5基础上，只需要替换atmosphere/package3，atmosphere/stratosphere.romfs，bootloader/payloads/fusee.bin这三个文件即可），sigpatch支持fusee和fss0的引导。
 
 【AK杂谈】大气层1.7.0后sigpatch签名补丁的三种解决办法
 
